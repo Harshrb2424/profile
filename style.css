@@ -1,0 +1,113 @@
+  /* font-family: 'Barlow', sans-serif;
+  font-family: 'Della Respira', serif;
+  font-family: 'Karla', sans-serif; */
+  :root {
+    --primary-color: #b8ed8d; /* Blue */
+    --secondary-color: #236f30; /* Tomato */
+    --accent-color: #252828; /* Green */
+    --font-color: rgb(223, 223, 223);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+}
+.padding{
+    padding: 0 10%;
+}
+header{
+    height: 100vh;
+    background-color: var(--accent-color);
+    color: var(--font-color);
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* justify-content: center; */
+}
+header div{
+    flex-grow: 1;
+    /* flex-basis: 500; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.img{
+    flex-direction: row;
+}
+img{
+    max-width: 50vh;
+    border-radius: 50px;
+    transition: all ease 0.5s;
+}
+img:hover{
+    border-radius: 20px;
+    transform: scale(1.05);
+    transition: all ease 0.5s;
+}
+header button{
+    height: 50px;
+    width: 150px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    opacity: 50%;
+    transform: translateY(5px);
+    transition: all ease 0.5s;
+}
+header button:hover{
+    opacity: 100%;
+    transform: translateY(0px) scale(1.05);
+    transition: all ease 0.5s;
+}
+h1, h2, h3{
+    margin: 0;
+}
+h3{
+    color: var(--primary-color);
+}
+h1{
+    font-weight: 100;
+    font-size: 5rem;
+}
+
+
+
+#basic-info > div{
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+}
+#basic-info h2{
+   text-align: center;
+}
+#basic-info .personal, #basic-info .skill{
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+#basic-info .personal > div, #basic-info .skill > div{
+    flex-grow: 1;
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+    /* flex-direction: column; */
+}
+#basic-info p,#basic-info h5{
+    margin: 5px 0;
+    font-size: 1rem;
+}
+#basic-info h5{
+    padding-left: 5px;
+}
+h4{
+    width: 100%;
+    flex-grow: 4;
+}
