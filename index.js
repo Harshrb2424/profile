@@ -22,14 +22,13 @@ Information = {
   //     { question: "email", answer: "harshrb2424" },
   //     { question: "Languages", answer: ["English", "Hindi", "Telugu"] },
   //   ],
-  skills: {
-    HTML: 74,
-    CSS: 50,
-    JS: 80,
-    Jquery: 90,
-    NodeJS: 80,
-    ReactJS: 30,
-  },
+  skills: [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/2101px-Adobe_Premiere_Pro_CC_icon.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/512px-Blender_logo_no_text.svg.png",
+"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png",
+"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
+"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/640px-JavaScript-logo.png",
+],
   education: {
     School: {
       name: "Takshasila Public School",
@@ -64,19 +63,24 @@ Information = {
   },
   Experience: [
     {
-      name: "Minecraft Videos",
-      month: "Sept-Oct 2020",
-      skillsDeveloped:
-        "Content Creation, OBS Setup, Video Editing and Thumbnail Creation",
-      link: "https://youtube.com/playlist?list=PL5MuW9KkxcUg6ps_3uMAfF7r7rN63_Xty&si=pxyA_TnNcsGmJs8P",
-      src: "./images/mc.png"
+      name: "Project-UniEvent-Node (Hackathon Class Winners)",
+      month: "June 2023",
+      skillsDeveloped: "Web Backend development",
+      link: "https://github.com/ShaikhAman01/Project-UniEvent-Node",
+      src: "https://raw.githubusercontent.com/ShaikhAman01/Project-UniEvent-Node/main/public/Images/HomePage.png"
     },
     {
-      name: "Streaming Presents (for Shrey_INDIA Youtube)",
-      month: "Apr 2021",
-      skillsDeveloped: "OBS Setup, Video Editing and Thumbnail Creation",
-      link: "https://www.youtube.com/live/QD8hZmt0VPU?si=SEwD-lvisHLJOOdu",
-      src: "./images/obs.png"
+      name: "Janaki (unreleased Short Film)",
+      month: "June 2023",
+      skillsDeveloped: "Video and Photo Editing",
+      src: "./images/janaki.png"
+    },
+    {
+      name: " Youtube Shorts (Short snippets Youtube Channel)",
+      month: "May 2023",
+      skillsDeveloped: "Video and Photo Editing",
+      link: "https://www.youtube.com/@Short.snippets",
+      src: "./images/ss.png"
     },
     {
       name: "Instagram Content Creation (@Harshrd.3d)",
@@ -87,13 +91,6 @@ Information = {
       src: "./images/ig.png"
     },
     {
-      name: "FMC Weekend 2022 Competition (IIT BHU Varanasi)",
-      month: "Feb 2022",
-      skillsDeveloped: "3D Modelling & Animation",
-      link: "https://www.instagram.com/p/CaAZJ3mlefj/",
-      src: "./images/blender.png"
-    },
-    {
       name: "Created With Blender Timelapse (Youtube)",
       month: "Feb-March 2022",
       skillsDeveloped: "3D Modelling & Animation",
@@ -101,17 +98,26 @@ Information = {
       src: "./images/timelapse.png"
     },
     {
-      name: " Youtube Shorts (Short snippets Youtube Channel)",
-      month: "May 2023",
-      skillsDeveloped: "Video and Photo Editing",
-      link: "https://www.youtube.com/@Short.snippets",
-      src: "./images/ss.png"
+      name: "FMC Weekend 2022 Competition (IIT BHU Varanasi)",
+      month: "Feb 2022",
+      skillsDeveloped: "3D Modelling & Animation",
+      link: "https://www.instagram.com/p/CaAZJ3mlefj/",
+      src: "./images/blender.png"
     },
     {
-      name: "Janaki (unreleased Short Film)",
-      month: "June 2023",
-      skillsDeveloped: "Video and Photo Editing",
-      src: "./images/janaki.png"
+      name: "Streaming Presents (for Shrey_INDIA Youtube)",
+      month: "Apr 2021",
+      skillsDeveloped: "OBS Setup, Video Editing and Thumbnail Creation",
+      link: "https://www.youtube.com/live/QD8hZmt0VPU?si=SEwD-lvisHLJOOdu",
+      src: "./images/obs.png"
+    },
+    {
+      name: "Minecraft Videos",
+      month: "Sept-Oct 2020",
+      skillsDeveloped:
+        "Content Creation, OBS Setup, Video Editing and Thumbnail Creation",
+      link: "https://youtube.com/playlist?list=PL5MuW9KkxcUg6ps_3uMAfF7r7rN63_Xty&si=pxyA_TnNcsGmJs8P",
+      src: "./images/mc.png"
     }
   ],
 };
@@ -128,9 +134,9 @@ Object.entries(Information.personalInfo).forEach(([key, value]) => {
     "<div><p>" + key + ":" + "</p><h5>" + value + "</h5></div>"
   );
 });
-Object.entries(Information.skills).forEach(([key, value]) => {
+Information.skills.forEach((e) => {
   $(".skill").append(
-    "<div><p>" + key + ":" + "</p><h5>" + value + "</h5></div>"
+    `<div><img src="${e}" alt=""></div>`
   );
 });
 
