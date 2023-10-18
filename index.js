@@ -122,6 +122,22 @@ Information = {
         "Content Creation, OBS Setup, Video Editing and Thumbnail Creation",
       link: "https://youtube.com/playlist?list=PL5MuW9KkxcUg6ps_3uMAfF7r7rN63_Xty&si=pxyA_TnNcsGmJs8P",
       src: "./images/mc.png"
+    },
+    {
+      name: "Minecraft World Designer Assistent (MGU.ONE)",
+      month: "Aug-Sept 2020",
+      skillsDeveloped:
+        "Creative Design, Teamwork, Problem-Solving, Attention to Detail",
+      link: "https://topminecraftservers.org/server/10331",
+      src: "./images/mgu-bedwars-map.png"
+    },
+    {
+      name: "Community Coordinator (Discord Server: MGU.ONE)",
+      month: "July-Oct 2020",
+      skillsDeveloped:
+        "Event Organizing, Discord Community Moderator, Helper",
+      link: "https://discord.gg/mgu",
+      src: "./images/mgu-bedwars-event.jpg"
     }
   ],
 };
