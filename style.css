@@ -179,7 +179,15 @@
   .exp img {
     border-radius: 10px;
   }
-  
+  .move h4{
+    font-size: 1.5rem;
+  }
+  .move h5{
+    font-size: 1rem;
+  }
+  .move h6{
+    font-size: 0.85rem;
+  }
   /* Tablet styles (adjust as needed) */
   @media (min-width: 600px) and (max-width: 1024px) {
     body {

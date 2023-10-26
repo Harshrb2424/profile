@@ -28,7 +28,7 @@ Information = {
 "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png",
 "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
 "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/640px-JavaScript-logo.png",
-"https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png",
+"https://seeklogo.com/resources/images/N/nodejs-logo-FBE122E377-seeklogo.com.png",
 "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png",
 "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/695px-C_Programming_Language.svg.png",
 "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png"
@@ -39,7 +39,7 @@ Information = {
       link: "https://takshasilapublicschool.com/",
       edu: "NUR to X",
       duration: "2007-2020",
-      imglink: "./images/tps.jpeg",
+      imglink: "./resources/images/tps.jpeg",
     },
     Inter: {
       name: "Sri Chaitanya Junior College",
@@ -54,7 +54,7 @@ Information = {
       link: "https://mrce.in/",
       edu: "B.Tech. Computer Science and Engineering (AI & ML)",
       duration: "2022-Present",
-      imglink: "https://mrce.in/assets/images/logo.png",
+      imglink: "https://mrce.in/assets/resources/images/logo.png",
     },
     webDev: {
       name: "The Complete 2023 Web Development Bootcamp, Dr. Angela Yu",
@@ -71,20 +71,20 @@ Information = {
       month: "June 2023",
       skillsDeveloped: "Web Backend development",
       link: "https://github.com/ShaikhAman01/Project-UniEvent-Node",
-      src: "https://raw.githubusercontent.com/ShaikhAman01/Project-UniEvent-Node/main/public/Images/HomePage.png"
+      src: "https://raw.githubusercontent.com/ShaikhAman01/Project-UniEvent-Node/main/public/resources/Images/HomePage.png"
     },
     {
       name: "Janaki (unreleased Short Film)",
       month: "June 2023",
       skillsDeveloped: "Video and Photo Editing",
-      src: "./images/janaki.png"
+      src: "./resources/images/janaki.png"
     },
     {
       name: " Youtube Shorts (Short snippets Youtube Channel)",
       month: "May 2023",
       skillsDeveloped: "Video and Photo Editing",
       link: "https://www.youtube.com/@Short.snippets",
-      src: "./images/ss.png"
+      src: "./resources/images/ss.png"
     },
     {
       name: "Instagram Content Creation (@Harshrd.3d)",
@@ -92,28 +92,28 @@ Information = {
       skillsDeveloped:
         "Content Creation, 3D Modelling, Animation, Rendering & Compositing.",
       link: "https://www.instagram.com/harshrb.3d",
-      src: "./images/ig.png"
+      src: "./resources/images/ig.png"
     },
     {
       name: "Created With Blender Timelapse (Youtube)",
       month: "Feb-March 2022",
       skillsDeveloped: "3D Modelling & Animation",
       link: "https://youtube.com/playlist?list=PL5MuW9KkxcUj7q-tIZmJHpINRqfdh2foV&si=MGPg5ZvtmTED8bTb",
-      src: "./images/timelapse.png"
+      src: "./resources/images/timelapse.png"
     },
     {
       name: "FMC Weekend 2022 Competition (IIT BHU Varanasi)",
       month: "Feb 2022",
       skillsDeveloped: "3D Modelling & Animation",
       link: "https://www.instagram.com/p/CaAZJ3mlefj/",
-      src: "./images/blender.png"
+      src: "./resources/images/blender.png"
     },
     {
       name: "Streaming Presents (for Shrey_INDIA Youtube)",
       month: "Apr 2021",
       skillsDeveloped: "OBS Setup, Video Editing and Thumbnail Creation",
       link: "https://www.youtube.com/live/QD8hZmt0VPU?si=SEwD-lvisHLJOOdu",
-      src: "./images/obs.png"
+      src: "./resources/images/obs.png"
     },
     {
       name: "Minecraft Videos",
@@ -121,7 +121,7 @@ Information = {
       skillsDeveloped:
         "Content Creation, OBS Setup, Video Editing and Thumbnail Creation",
       link: "https://youtube.com/playlist?list=PL5MuW9KkxcUg6ps_3uMAfF7r7rN63_Xty&si=pxyA_TnNcsGmJs8P",
-      src: "./images/mc.png"
+      src: "./resources/images/mc.png"
     },
     {
       name: "Minecraft World Designer Assistent (MGU.ONE)",
@@ -129,7 +129,7 @@ Information = {
       skillsDeveloped:
         "Creative Design, Teamwork, Problem-Solving, Attention to Detail",
       link: "https://topminecraftservers.org/server/10331",
-      src: "./images/mgu-bedwars-map.png"
+      src: "./resources/images/mgu-bedwars-map.png"
     },
     {
       name: "Community Coordinator (Discord Server: MGU.ONE)",
@@ -137,14 +137,10 @@ Information = {
       skillsDeveloped:
         "Event Organizing, Discord Community Moderator, Helper",
       link: "https://discord.gg/mgu",
-      src: "./images/mgu-bedwars-event.jpg"
+      src: "./resources/images/mgu-bedwars-event.jpg"
     }
   ],
 };
-
-// console.log($("span").text());
-// $("span").text(eval("BasicInformation.home."+$("span").attr("class")));
-// $("span").text(console.log());
 
 Object.entries(Information.home).forEach(([key, value]) => {
   $(String(".home." + key)).text(value);
@@ -163,8 +159,6 @@ Information.skills.forEach((e) => {
 $(String(".home.switch")).text(Information.home.skills);
 
 Object.entries(Information.education).forEach(([key, value]) => {
-  // console.log(key, value);
-  // console.log("."+key+" h4 a");
   $("img." + key).attr("src", value.imglink);
   $("." + key + " h4 a").text(value.name);
   $("." + key + " h4 a").attr("href", value.link);
@@ -173,8 +167,6 @@ Object.entries(Information.education).forEach(([key, value]) => {
 });
 
 Object.entries(Information.Experience).forEach(([key, value]) => {
-  // console.log(key, value);
-  // console.log("."+key+" h4 a");
   $("." + key + " img").attr("src", value.imglink);
   $("." + key + " h4 a").text(value.name);
   $("." + key + " h4 a").attr("href", value.link);
@@ -187,30 +179,8 @@ function Experi(data) {
 }
 
 Information.Experience.forEach((e) => {
-  console.log(e);
   $(".exp").append(Experi(e));
 });
-// // BasicInformation.home.forEach(element => {
-// //     console.log($("span").hasClass(element));
-
-// // });
-// // $("span").each(function() {
-// //     console.log($(this).attr("class"));
-
-// //     });
-
-// BasicInformation.personalInfo.forEach((element) => {
-//   $(".personal")
-// });
-// BasicInformation.skills.forEach((element) => {
-//   $(".skill").append(
-//     "<p>",
-//     element.question,
-//     "</p><h5>",
-//     element.answer,
-//     "</h5>"
-//   );
-// });
 
 $(".content").click(function (e) {
   $(this).toggleClass("fullscreen");
