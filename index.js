@@ -67,7 +67,7 @@ Information = {
   },
   Experience: [
     {
-      name: "Project-UniEvent-Node (Hackathon Class Winners)",
+      name: "Project-UniEvent-Node",
       month: "June 2023",
       skillsDeveloped: "Web Backend development",
       link: "https://github.com/ShaikhAman01/Project-UniEvent-Node",
