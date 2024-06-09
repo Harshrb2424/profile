@@ -1,0 +1,143 @@
+{
+    "nav": {
+        "name": "Harsh RB",
+        "link": ["About", "Projects", "Blogs", "Contacts"]
+    },
+    "home": {
+        "role": "Developer",
+        "title": "Hello My name is Harsh R Bagtharia",
+        "sub-title": "Welcome to my digital space! I'm a college student aspiring to make a mark in the world of development. Explore my projects and join me on this coding adventure."
+    },
+    "about-me":{
+        "title": "About Me",
+        "desc": "I am Harsh RB, a dynamic individual with a passion for web development, artistic expression, and gaming. I am a skilled web developer, adept at HTML, CSS, JavaScript, Node.js, React, and more. As an artist and content creator, I bring ideas to life through 3D modeling, animation, video editing, and photo manipulation. My gaming experience extends from Minecraft world design to competitive events, showcasing my diverse skill set, creativity, and commitment to every endeavor.",
+        "resume-link": ""
+    },
+    "info":{
+        "title": "Personal Info",
+        "personal-info": [
+            {"index": "Name", "value": "Harsh R Bagtharia"},
+            {"index": "City", "value": "Hyderabad"},
+            {"index": "Email", "value": "harshrb05@gmail.com"},
+            {"index": "Languages", "value": "English, Hindi, Telugu"}
+        ],
+        "technical-skills": {
+            "subtitle": "Technical Skills",
+            "skills": ["html", "css", "javascript", "express", "nodejs", "react", "python", "c", "blender", "github"]
+        },
+        "soft-skills": {
+            "subtitle": "Soft Skills",
+            "skills": ["Collaboration", "Problem-Solving", "Adaptability", "Networking", "Customer Focus"]
+        }
+    },
+    "education": [
+        {"title": "Higher Education", "course": "B.Tech. Computer Science and Engineering (AI & ML)", "institute": "Malla Reddy College of Engineering", "start-year": "2022", "end-year": "", "link": "https://mrce.in"},
+        {"title": "Inter Mediate", "course": "XI & XII", "institute": "Sri Chaitanya Junior College", "start-year": "2020", "end-year": "2022", "link": "https://srichaitanya.net/"},
+        {"title": "Secondery Education", "course": "NUR to X", "institute": "Takshasila Public School", "start-year": "2007", "end-year": "2020", "link": "https://takshasilapublicschool.com/"}
+    ],
+    "course": {
+        "title": "Course & Certificates",
+        "courses": [
+            {"title": "Web Development", "course": "The Complete 2023 Web Development Bootcamp, Dr. Angela Yu", "institute": "Udemy", "start-year": "2022", "end-year": "2024", "link": "https://www.udemy.com/course/the-complete-web-development-bootcamp/", "certificate-link": "https://www.udemy.com/certificate/UC-22c2a1a7-05bd-451c-a601-200b601031f7/"}
+        ]
+    },
+    "projects": {
+        "title": "Portfolio",
+        "project": [
+            {
+                "title": "Project-UniEvent-Node (Hackathon Class Winners)",
+                "time-period": "June 2023",
+                "role": "Web Backend development",
+                "link": "https://github.com/ShaikhAman01/Project-UniEvent-Node",
+                "image": "https://raw.githubusercontent.com/ShaikhAman01/Project-UniEvent-Node/main/public/Images/HomePage.png"
+              },
+              {
+                "title": "Janaki (unreleased Short Film)",
+                "time-period": "June 2023",
+                "role": "Video and Photo Editing",
+                "link": "",
+                "image": "./resources/images/janaki.png"
+              },
+              {
+                "title": "Youtube Shorts (Short snippets Youtube Channel)",
+                "time-period": "May 2023",
+                "role": "Video and Photo Editing",
+                "link": "https://www.youtube.com/@Short.snippets",
+                "image": "./resources/images/ss.png"
+              },
+              {
+                "title": "Instagram Content Creation (@Harshrd.3d)",
+                "time-period": "June-March 2022",
+                "role": "Content Creation, 3D Modelling, Animation, Rendering & Compositing",
+                "link": "https://www.instagram.com/harshrb.3d",
+                "image": "./resources/images/ig.png"
+              },
+              {
+                "title": "Created With Blender Timelapse (Youtube)",
+                "time-period": "Feb-March 2022",
+                "role": "3D Modelling & Animation",
+                "link": "https://youtube.com/playlist?list=PL5MuW9KkxcUj7q-tIZmJHpINRqfdh2foV",
+                "image": "./resources/images/timelapse.png"
+              },
+              {
+                "title": "FMC Weekend 2022 Competition (IIT BHU Varanasi)",
+                "time-period": "Feb 2022",
+                "role": "3D Modelling & Animation",
+                "link": "https://www.instagram.com/p/CaAZJ3mlefj/",
+                "image": "./resources/images/blender.png"
+              },
+              {
+                "title": "Streaming Presents (for Shrey_INDIA Youtube)",
+                "time-period": "Apr 2021",
+                "role": "OBS Setup, Video Editing and Thumbnail Creation",
+                "link": "https://www.youtube.com/live/QD8hZmt0VPU",
+                "image": "./resources/images/obs.png"
+              },
+              {
+                "title": "Minecraft Videos",
+                "time-period": "Sept-Oct 2020",
+                "role": "Content Creation, OBS Setup, Video Editing and Thumbnail Creation",
+                "link": "https://youtube.com/playlist?list=PL5MuW9KkxcUg6ps_3uMAfF7r7rN63_Xty",
+                "image": "./resources/images/mc.png"
+              },
+              {
+                "title": "Minecraft World Designer Assistant (MGU.ONE)",
+                "time-period": "Aug-Sept 2020",
+                "role": "Creative Design, Teamwork, Problem-Solving, Attention to Detail",
+                "link": "https://topminecraftservers.org/server/10331",
+                "image": "./resources/images/mgu-bedwars-map.png"
+              },
+              {
+                "title": "Community Coordinator (Discord Server: MGU.ONE)",
+                "time-period": "July-Oct 2020",
+                "role": "Event Organizing, Discord Community Moderator, Helper",
+                "link": "https://discord.gg/mgu",
+                "image": "./resources/images/mgu-bedwars-event.jpg"
+              }
+        ]
+    },
+    "contacts": {
+        "links": [
+            {"name": "discord", "link": "https://discordapp.com/users/638031965139763232"},
+            {"name": "facebook", "link": "https://www.facebook.com/harsh.rb.9/"},
+            {"name": "pintrest", "link": "https://in.pinterest.com/polyharsh/"},
+            {"name": "reddit", "link": "https://www.reddit.com/user/H55_HarshRB"},
+            {"name": "telegram", "link": "https://t.me/kn8hd"},
+            {"name": "threads", "link": "https://www.threads.net/@harshrb55"},
+            {"name": "youtube", "link": "https://www.youtube.com/@HarshRB3D"}
+        ],
+        "form": {
+            "whatsapp": "7660873570",
+            "whatsapp-text": "Hello",
+            "email": "harshrb05@gmail.com"
+        },
+        "footer": {
+            "links": [
+                {"name": "linkedin", "link": "https://www.linkedin.com/in/harsh-r-bagtharia-37aa741a0/"},
+                {"name": "github", "link": "https://github.com/Harshrb2424"},
+                {"name": "instagram", "link": "https://www.instagram.com/harshrb.dev"},
+                {"name": "whatsapp", "link": "https://wa.me/917660873570?text=Your%20portfolio%20really%20caught%20my%20eye%2C%20and%20I%27m%20excited%20about%20the%20possibility%20of%20working%20together.%20I%20have%20a%20few%20questions%20and%20ideas%20to%20discuss.%20Could%20we%20set%20up%20a%20time%20for%20a%20quick%20call%20or%20meeting%3F%0A%0A"}
+            ]
+        }
+    }
+}
