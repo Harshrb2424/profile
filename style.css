@@ -106,15 +106,15 @@ nav:hover {
 nav:hover h3,
 nav:hover h4 {
   transform: scale(1.1);
-}
-nav h3:hover,
-nav h4:hover {
-  transform: scale(1.4);
+  cursor:pointer;
 }
 nav div {
   display: flex;
   justify-content: flex-end;
   gap: 50px;
+}
+a:hover{
+  cursor:pointer;
 }
 
 #home {
@@ -141,6 +141,7 @@ nav div {
 }
 #home .info {
   padding: 0 4%;
+  padding-top: 60px;
 }
 #home .info h1,
 #home .info h2,
@@ -385,7 +386,9 @@ input, textarea{
 .mail-link{
   text-decoration: none;
 }
-
+#contacts{
+  margin: 40px 0;
+}
 .underline-nav {
   text-decoration: none;
   position: relative;

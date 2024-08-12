@@ -1,5 +1,9 @@
 $(document).ready(function () {
   $.getJSON("data.json", function (data) {
+    $("#projects").fadeOut();
+    $("#about").fadeOut();
+    $("#resume").fadeOut();
+    $('#socials').fadeOut();
     // Set the navigation name
     $("nav .home").text(data.nav.name);
 
@@ -49,5 +53,40 @@ $(document).ready(function () {
     // $("#about .sub-title").text(data.about["sub-title"]);
 
 
+    $('.home').click(function() {
+      $('#socials').fadeOut();
+      $('#projects').fadeOut();
+      $('#about').fadeOut();
+      $("#resume").fadeOut();
+      $('#home').fadeIn(300);
+    });
+      $('.about').click(function() {
+        $('#socials').fadeOut();
+        $('#projects').fadeOut();
+        $('#home').fadeOut(300, function() {
+          // This function runs after #home has faded out
+          $('#about').fadeIn(200);
+          $("#resume").fadeIn(200);
+        });
+      });
+      $('.projects').click(function() {
+        $('#about').fadeOut();
+        $('#socials').fadeOut();
+        $("#resume").fadeOut();
+        $('#home').fadeOut(300, function() {
+          // This function runs after #home has faded out
+          $('#projects').fadeIn(200);
+        });
+      });
+      $('.contacts').click(function() {
+        $('#about').fadeOut();
+        $('#socials').fadeOut();
+        $("#resume").fadeOut();
+        $('#projects').fadeOut();
+        $('#home').fadeOut(300, function() {
+          // This function runs after #home has faded out
+          $('#socials').fadeIn(200);
+        });
+      });
   });
 });
