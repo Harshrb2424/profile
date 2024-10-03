@@ -44,6 +44,13 @@
     "projects": {
         "title": "Portfolio",
         "project": [
+          {
+            "title": "Code Marathon Competition",
+            "time-period": "September 2024",
+            "role": "Technical Coordinator",
+            "link": "https://iic-mrce.github.io/CodeMarathon/",
+            "image": "./resources/images/codemarathon.png"
+          },
             {
                 "title": "Project-UniEvent-Node (Hackathon Class Winners)",
                 "time-period": "June 2023",

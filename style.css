@@ -100,21 +100,20 @@ nav * {
 }
 nav:hover {
   padding: 20px 5%;
-  width: 90%;
   transition: all ease 0.25s;
 }
 nav:hover h3,
 nav:hover h4 {
   transform: scale(1.1);
-  cursor:pointer;
+  cursor: pointer;
 }
 nav div {
   display: flex;
   justify-content: flex-end;
   gap: 50px;
 }
-a:hover{
-  cursor:pointer;
+a:hover {
+  cursor: pointer;
 }
 
 #home {
@@ -172,7 +171,7 @@ a:hover{
 #about .img img {
   transition: all ease 0.25s;
 }
- .container {
+.container {
   margin: 5% 10%;
   border-radius: 50px;
   background-color: #fff;
@@ -183,28 +182,28 @@ a:hover{
     rgba(0, 0, 0, 0.07) 0 4px 8px, rgba(0, 0, 0, 0.07) 0 8px 16px,
     rgba(0, 0, 0, 0.07) 0 16px 32px, rgba(0, 0, 0, 0.07) 0 32px 64px;
   transition: all ease 0.5s;
-    display: flex;
+  display: flex;
 }
 #projects {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#projects .img-left{
-    flex-direction: row-reverse;
+#projects .img-left {
+  flex-direction: row-reverse;
 }
-#projects .info{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+#projects .info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
   flex: 1;
 }
-#projects .info div{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+#projects .info div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 #projects .container img {
   max-width: 50%;
@@ -218,61 +217,62 @@ a:hover{
   transform: scale(1.06);
   box-shadow: rgb(38, 57, 77) 0 20px 30px -10px;
 }
-#about{
-    padding: 100px 5%;
-    display: flex;
-    align-items: center;
-    gap: 50px;
+#about {
+  padding: 100px 5%;
+  display: flex;
+  align-items: center;
+  gap: 50px;
 }
-#about > div{
-    flex: 1;
+#about > div {
+  flex: 1;
 }
-#about img{
-    width: 70%;
-    border-radius: 50%;
+#about img {
+  width: 70%;
+  border-radius: 50%;
 }
 
-#resume{
+#resume {
   padding: 10px 5%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
-#resume h1{
+#resume h1 {
   padding: 0 10%;
 }
-.personal, .skill{
+.personal,
+.skill {
   padding: 20px 10%;
 }
-.skill h4{
+.skill h4 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
-.grid-full{
+.grid-full {
   grid-column: span 2;
 }
-.personal div{
+.personal div {
   display: flex;
   gap: 5px;
 }
-.skill div{
+.skill div {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
-#resume .education img{
+#resume .education img {
   width: 200px;
   object-fit: scale-down;
 }
-#resume .webDev a img{
+#resume .webDev a img {
   width: 100%;
   object-fit: scale-down;
 }
-#resume .container{
+#resume .container {
   padding: 10px;
 }
-#resume .container > div{
+#resume .container > div {
   padding: 20px 0;
   display: flex;
   flex-direction: column;
@@ -285,26 +285,28 @@ a:hover{
   transform: scale(1.06);
   box-shadow: rgb(38, 57, 77) 0 20px 30px -10px;
 }
-.courses a,.courses div{
-flex: 1;
+.courses a,
+.courses div {
+  flex: 1;
 }
-.course{
+.course {
   display: flex;
 }
-.courses img{
+.courses img {
   width: 20%;
 }
-.course div{
+.course div {
   display: flex;
   flex-direction: column;
   padding: 20px 10px;
   gap: 5px;
 }
-.course img, .course div{
+.course img,
+.course div {
   flex: 1;
 }
 
-#socials{
+#socials {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 0px;
@@ -316,10 +318,10 @@ flex: 1;
   width: 15px;
   transition: all 0.3s;
 }
-#socials .link a{
+#socials .link a {
   text-decoration: none;
 }
-#socials .link:hover{
+#socials .link:hover {
   font-weight: bold;
 }
 #socials .link:hover .svg {
@@ -340,12 +342,12 @@ flex: 1;
   height: 1rem;
   transition: all 0.3s;
 }
-.link a{
+.link a {
   display: flex;
   align-items: center;
   gap: 7px;
 }
-.svg-arrow{
+.svg-arrow {
   height: 10px;
   width: 10px;
   transition: all 0.3s;
@@ -358,7 +360,8 @@ flex: 1;
   padding: 20px;
   width: 300px;
 }
-input, textarea{
+input,
+textarea {
   width: 100%;
   padding: 8px;
   margin-bottom: 16px;
@@ -383,10 +386,10 @@ input, textarea{
 #contacts:hover a:hover {
   transform: scale(1.15);
 }
-.mail-link{
+.mail-link {
   text-decoration: none;
 }
-#contacts{
+#contacts {
   margin: 40px 0;
 }
 .underline-nav {
@@ -435,4 +438,86 @@ input, textarea{
   opacity: 0.6;
   z-index: -1;
   transition: all ease-in-out 0.3s;
+}
+
+@media (max-width: 768px) {
+  /* Target devices with a max width of 768px (tablets and smaller) */
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  h4 {
+    font-size: 0.7rem;
+  }
+  p {
+    font-size: 0.7rem;
+  }
+  nav {
+    padding: 0px 4%;
+    width: 88vw;
+  }
+  nav div {
+    gap: 20px;
+  }
+  #home {
+    margin-bottom: 100vh;
+  }
+  #home .info {
+    margin-top: 130vh;
+  }
+  #contacts {
+    /* margin-top: 100vh; */
+  }
+  #home img {
+    transform: translateX(-50%);
+    z-index: -10;
+  }
+  #about {
+    flex-direction: column-reverse;
+  }
+  #resume {
+    display: block;
+  }
+  #resume .education img {
+    width: 100px;
+  }
+  .grid-full {
+    flex-direction: column;
+  }
+  #resume .grid-full > div {
+    flex-direction: row;
+  }
+  .container {
+    display: flex;
+  }
+  #projects .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #projects .img-left {
+    flex-direction: column-reverse;
+  }
+  #projects .container img {
+    max-width: 100%;
+  }
+  #myForm {
+    width: 230px;
+  }
+  #socials {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  .link p {
+    font-size: 1rem;
+  }
+  #home:hover .img img {
+    transform: translateX(-50%) scale(1.05);
+    transition: all ease 0.25s;
+  }
 }
