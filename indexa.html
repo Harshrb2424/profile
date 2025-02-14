@@ -1,5 +1,3 @@
-<!-- views/index.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,79 +14,38 @@
     />
     <link rel="stylesheet" href="./style-1.css" />
     <link rel="stylesheet" href="./svg.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <nav>
-      <h3 class="home underline-nav">Harsh RB.</h3>
-      <div>
-        <h4 class="about underline-nav">About</h4>
-        <h4 class="projects underline-nav">Projects</h4>
-        <h4 class="contacts underline-nav">Contacts</h4>
+      <h3 class="home underline-nav"></h3>
+      <div class="nav-links">
+        <!-- Links will be dynamically added here -->
       </div>
     </nav>
 
     <section id="home">
       <div class="info">
-        <h5><span class="underline">Developer</span></h5>
-        <h1 class="text-shadow">Hello My name is Harsh R Bagtharia</h1>
-        <h2 class="text-shadow">
-          Welcome to my digital space! I&#39;m a college student aspiring to
-          make a mark in the world of development. Explore my projects and join
-          me on this coding adventure.
-        </h2>
+        <h5 class="role"><span class="underline"></span></h5>
+        <h1 class="title"></h1>
+        <h2 class="sub-title"></h2>
         <a class="button-primary projects">Projects</a>
         <a class="button-secondary about">About Me</a>
       </div>
       <div class="img">
-        <!-- <svg viewBox="0 0 779 707">
-          <use xlink:href="#cover"></use>
-        </svg> -->
         <img src="./resources/images/profile.jpg" alt="" />
       </div>
     </section>
 
     <section id="projects">
       <h1 class="underline">Portfolio</h1>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Tenexis.in</h2>
-          <p>January 2025</p>
-          <p>Lead Developer</p>
-
-          <a
-            class="button-secondary"
-            href="https://tenexis.in"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/tenexis.png" alt="" />
-      </div>
-
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Code Marathon Competition</h2>
-          <p>September 2024</p>
-          <p>Technical Coordinator</p>
-
-          <a
-            class="button-secondary"
-            href="https://iic-mrce.github.io/CodeMarathon/"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/codemarathon.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Project-UniEvent-Node (Hackathon Class Winners)</h2>
-          <p>June 2023</p>
-          <p>Web Backend development</p>
-
+      <!-- <div class="container">
+        <div class="info">
+          <div>
+            <h2>Project-UniEvent-Node (Hackathon Class Winners)</h2>
+            <p>June 2023</p>
+            <p>Web Backend development</p>
+          </div>
           <a
             class="button-secondary"
             href="https://github.com/ShaikhAman01/Project-UniEvent-Node"
@@ -101,177 +58,31 @@
           alt=""
         />
       </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>Janaki (unreleased Short Film)</h2>
-          <p>June 2023</p>
-          <p>Video and Photo Editing</p>
+      <div class="container img-left">
+        <div class="info">
+          <div>
+            <h2>Janaki (unreleased Short Film)</h2>
+            <p>June 2023</p>
+            <p>Video and Photo Editing</p>
+          </div>
         </div>
         <img src="./resources/images/janaki.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Youtube Shorts (Short snippets Youtube Channel)</h2>
-          <p>May 2023</p>
-          <p>Video and Photo Editing</p>
-
-          <a
-            class="button-secondary"
-            href="https://www.youtube.com/@Short.snippets"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/ss.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>Instagram Content Creation (@Harshrd.3d)</h2>
-          <p>June-March 2022</p>
-          <p>
-            Content Creation, 3D Modelling, Animation, Rendering &amp;
-            Compositing.
-          </p>
-
-          <a
-            class="button-secondary"
-            href="https://www.instagram.com/harshrb.3d"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/ig.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Created With Blender Timelapse (Youtube)</h2>
-          <p>Feb-March 2022</p>
-          <p>3D Modelling &amp; Animation</p>
-
-          <a
-            class="button-secondary"
-            href="https://youtube.com/playlist?list=PL5MuW9KkxcUj7q-tIZmJHpINRqfdh2foV&amp;si=MGPg5ZvtmTED8bTb"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/timelapse.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>FMC Weekend 2022 Competition (IIT BHU Varanasi)</h2>
-          <p>Feb 2022</p>
-          <p>3D Modelling &amp; Animation</p>
-
-          <a
-            class="button-secondary"
-            href="https://www.instagram.com/p/CaAZJ3mlefj/"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/blender.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Streaming Presents (for Shrey_INDIA Youtube)</h2>
-          <p>Apr 2021</p>
-          <p>OBS Setup, Video Editing and Thumbnail Creation</p>
-
-          <a
-            class="button-secondary"
-            href="https://www.youtube.com/live/QD8hZmt0VPU?si=SEwD-lvisHLJOOdu"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/obs.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>Minecraft Videos</h2>
-          <p>Sept-Oct 2020</p>
-          <p>
-            Content Creation, OBS Setup, Video Editing and Thumbnail Creation
-          </p>
-
-          <a
-            class="button-secondary"
-            href="https://youtube.com/playlist?list=PL5MuW9KkxcUg6ps_3uMAfF7r7rN63_Xty&amp;si=pxyA_TnNcsGmJs8P"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/mc.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Minecraft World Designer Assistant (MGU.ONE)</h2>
-          <p>Aug-Sept 2020</p>
-          <p>Creative Design, Teamwork, Problem-Solving, Attention to Detail</p>
-
-          <a
-            class="button-secondary"
-            href="https://topminecraftservers.org/server/10331"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/mgu-bedwars-map.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>Community Coordinator (Discord Server: MGU.ONE)</h2>
-          <p>July-Oct 2020</p>
-          <p>Event Organizing, Discord Community Moderator, Helper</p>
-
-          <a
-            class="button-secondary"
-            href="https://discord.gg/mgu"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/mgu-bedwars-event.jpg" alt="" />
-      </div>
+      </div> -->
     </section>
 
     <section id="about">
       <div class="info">
-        <!-- <h5>Diesgner</h5> -->
-        <h1 class="underline">About Me</h1>
-        <p>
-          I am Harsh RB, a dynamic individual with a passion for web
-          development, artistic expression, and gaming. I am a skilled web
-          developer, adept at HTML, CSS, JavaScript, Node.js, React, and more.
-          As an artist and content creator, I bring ideas to life through 3D
-          modeling, animation, video editing, and photo manipulation. My gaming
-          experience extends from Minecraft world design to competitive events,
-          showcasing my diverse skill set, creativity, and commitment to every
-          endeavor.
-        </p>
-        <a href="#resume" class="button-primary">Resume</a>
-        <!-- <a href="#projects" class="button-secondary">LinkedIn</a> -->
+        <h1 class="underline"></h1>
+        <p></p>
+        <a href="./resources/Harsh R bagtharia Resume.pdf" target="_blank" class="button-primary">Resume</a>
       </div>
       <div class="img">
-        <!-- <svg viewBox="0 0 779 707">
-          <use xlink:href="#cover"></use>
-        </svg> -->
-        <img src="./resources/images/profile.jpg" alt="" />
+        <img src="./resources/images/profile.jpg"  alt="profile" />
       </div>
     </section>
 
     <section id="resume">
-      <h1 class="grid-full"><span class="underline">Personal Info</span></h1>
+      <h1 class="grid-full underline">Personal Info</h1>
       <div class="personal">
         <div>
           <p>name:</p>
@@ -378,8 +189,8 @@
           <img src="https://pbs.twimg.com/media/FZFUlfqUIAALJ4o?format=jpg&name=medium" alt="">
         </div> -->
 
-      <h1 class="grid-full"><span class="underline">Higher Education</span></h1>
-      <div class="College education">
+      <h1 class="grid-full underline">Higher Education</h1>
+      <div class="container College education">
         <img
           class="College"
           src="https://mrce.in/assets/images/logo.png"
@@ -396,7 +207,7 @@
           <p class="duration">2022-Present</p>
         </div>
       </div>
-      <div class="Inter education">
+      <div class="container Inter education">
         <img
           class="Inter"
           src="https://play-lh.googleusercontent.com/1DMKiIVH2UpeAgkTFujeBMj0Ujqo9Md8TIeakjWHKqProhFnveXl6YmlIFD1dU4_v7g"
@@ -411,7 +222,7 @@
           <p class="duration">2020-2022</p>
         </div>
       </div>
-      <div class="School education">
+      <div class="container School education">
         <img class="School" src="./resources/images/tps.jpeg" alt="" />
         <div>
           <h3>Secondery Education</h3>
@@ -424,13 +235,13 @@
           <p class="duration">2007-2020</p>
         </div>
       </div>
-      <h1 class="grid-full"><span class="underline">Courses</span></h1>
-      <div class="webDev education">
+      <h1 class="grid-full underline">Courses</h1>
+      <div class="courses container grid-full webDev education">
         <a
           href="https://www.udemy.com/certificate/UC-22c2a1a7-05bd-451c-a601-200b601031f7/"
           ><img src="./resources/images/WebDev.jpg" alt=""
         /></a>
-        <div>
+        <div class="course">
           <img
             class="webDev"
             src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og"
@@ -451,7 +262,7 @@
     </section>
 
     <section id="socials">
-      <h1 class="underline">Contact</h1>
+      <h1 class="underline grid-full">Contact</h1>
       <div class="social-links">
         <div class="link">
           <a href="https://discordapp.com/users/638031965139763232">
@@ -536,7 +347,7 @@
     <section id="contacts">
       <div>
         <a class="svg-mail mail-link" href="mailto:harshrb05@gmail.com"></a>
-        <a class="mail-link">harshrb05@gmail.com</a>
+        <a class="mail-link" href="mailto:harshrb05@gmail.com">harshrb05@gmail.com</a>
       </div>
       <div>
         <a
@@ -561,7 +372,6 @@
         <a class="svg-linkedin" href=""></a> -->
       </div>
     </section>
-
     <footer>
       <div class="svg-footer"></div>
     </footer>
