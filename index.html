@@ -1,574 +1,935 @@
-<!-- views/index.ejs -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="theme-color" content="#8dede6" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Harsh RB</title>
-    <meta property="og:title" content="Harsh RB - Developer" />
-    <meta property="og:image" content="./resources/images/profile1.jpeg" />
+    <link rel="shortcut icon" href="./resources/images/favicon.ico" type="image/x-icon">
+    <title>Harsh RB.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      rel="shortcut icon"
-      href="./resources/images/favicon.ico"
-      type="image/x-icon"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="./style-1.css" />
-    <link rel="stylesheet" href="./svg.css" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                light: "#3b82f6",
+                dark: "#6366f1",
+              },
+              secondary: {
+                light: "#10b981",
+                dark: "#10b981",
+              },
+              dark: {
+                800: "#1e293b",
+                900: "#0f172a",
+              },
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "float-reverse": "float-reverse 5s ease-in-out infinite",
+              "pulse-slow": "pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "spin-slow": "spin 20s linear infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              "float-reverse": {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(20px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #0f172a;
+        color: #f8fafc;
+        overflow-x: hidden;
+      }
+
+      .gradient-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+      }
+
+      .glow {
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+      }
+
+      .blob {
+        filter: blur(60px);
+        opacity: 0.2;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #6366f1;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -24px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #6366f1;
+        border: 3px solid #1e293b;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: #334155;
+      }
+    </style>
   </head>
-  <body>
-    <nav>
-      <h3 class="home underline-nav">Harsh RB.</h3>
-      <div>
-        <h4 class="about underline-nav">About</h4>
-        <h4 class="projects underline-nav">Projects</h4>
-        <h4 class="contacts underline-nav">Contacts</h4>
+  <body class="min-h-screen">
+    <!-- Blob background elements -->
+    <div
+      class="blob bg-purple-500 w-64 h-64 rounded-full top-20 left-20 animate-float"
+    ></div>
+    <div
+      class="blob bg-blue-500 w-72 h-72 rounded-full bottom-40 right-20 animate-float-reverse"
+    ></div>
+    <div
+      class="blob bg-pink-500 w-80 h-80 rounded-full top-1/3 right-1/4 animate-pulse-slow"
+    ></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full bg-dark-900/80 backdrop-blur-md z-50 border-b border-dark-800"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-2xl font-bold gradient-text">Harsh RB.</a>
+          <div class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link text-gray-300 hover:text-white"
+              >Home</a
+            >
+            <a href="#about" class="nav-link text-gray-300 hover:text-white"
+              >About</a
+            >
+            <a href="#projects" class="nav-link text-gray-300 hover:text-white"
+              >Projects</a
+            >
+            <a
+              href="#experience"
+              class="nav-link text-gray-300 hover:text-white"
+              >Experience</a
+            >
+            <a href="#contact" class="nav-link text-gray-300 hover:text-white"
+              >Contact</a
+            >
+          </div>
+          <!-- <div class="flex items-center space-x-4">
+            <button
+              id="theme-toggle"
+              class="p-2 rounded-full hover:bg-dark-800 transition-colors"
+            >
+              <i class="fas fa-moon text-gray-300"></i>
+            </button>
+            <button
+              class="md:hidden p-2 rounded-full hover:bg-dark-800 transition-colors"
+            >
+              <i class="fas fa-bars text-gray-300"></i>
+            </button>
+          </div> -->
+        </div>
       </div>
     </nav>
 
-    <section id="home">
-      <div class="info">
-        <h5><span class="underline">Developer</span></h5>
-        <h1 class="text-shadow">Hello My name is Harsh R Bagtharia</h1>
-        <h2 class="text-shadow">
-          I am a Computer Science Engineering student with a focus on Artificial
-          Intelligence and Machine Learning. I have strong skills in full-stack
-          web development and software design.
-        </h2>
-        <a class="button-primary projects">Projects</a>
-        <a class="button-secondary about">About Me</a>
-      </div>
-      <div class="img">
-        <!-- <svg viewBox="0 0 779 707">
-          <use xlink:href="#cover"></use>
-        </svg> -->
-        <img src="./resources/images/profile.jpg" alt="" />
-      </div>
-    </section>
-
-    <section id="projects">
-      <h1 class="underline">Portfolio</h1>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Tenexis.in</h2>
-          <p>January 2025</p>
-          <p>Lead Developer</p>
-
-          <a class="button-secondary" href="https://tenexis.in" target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/tenexis.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>Code Marathon Competition</h2>
-          <p>September 2024</p>
-          <p>Technical Coordinator</p>
-
-          <a
-            class="button-secondary"
-            href="https://iic-mrce.github.io/CodeMarathon/"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/codemarathon.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Project-UniEvent-Node (Hackathon Class Winners)</h2>
-          <p>June 2023</p>
-          <p>Web Backend development</p>
-
-          <a
-            class="button-secondary"
-            href="https://github.com/ShaikhAman01/Project-UniEvent-Node"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img
-          src="https://raw.githubusercontent.com/ShaikhAman01/Project-UniEvent-Node/main/public/Images/HomePage.png"
-          alt=""
-        />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>Janaki (unreleased Short Film)</h2>
-          <p>June 2023</p>
-          <p>Video and Photo Editing</p>
-        </div>
-        <img src="./resources/images/janaki.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Youtube Shorts (Short snippets Youtube Channel)</h2>
-          <p>May 2023</p>
-          <p>Video and Photo Editing</p>
-
-          <a
-            class="button-secondary"
-            href="https://www.youtube.com/@Short.snippets"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/ss.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>Instagram Content Creation (@Harshrd.3d)</h2>
-          <p>June-March 2022</p>
-          <p>
-            Content Creation, 3D Modelling, Animation, Rendering &amp;
-            Compositing.
-          </p>
-
-          <a
-            class="button-secondary"
-            href="https://www.instagram.com/harshrb.3d"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/ig.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Created With Blender Timelapse (Youtube)</h2>
-          <p>Feb-March 2022</p>
-          <p>3D Modelling &amp; Animation</p>
-
-          <a
-            class="button-secondary"
-            href="https://youtube.com/playlist?list=PL5MuW9KkxcUj7q-tIZmJHpINRqfdh2foV&amp;si=MGPg5ZvtmTED8bTb"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/timelapse.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>FMC Weekend 2022 Competition (IIT BHU Varanasi)</h2>
-          <p>Feb 2022</p>
-          <p>3D Modelling &amp; Animation</p>
-
-          <a
-            class="button-secondary"
-            href="https://www.instagram.com/p/CaAZJ3mlefj/"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/blender.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Streaming Presents (for Shrey_INDIA Youtube)</h2>
-          <p>Apr 2021</p>
-          <p>OBS Setup, Video Editing and Thumbnail Creation</p>
-
-          <a
-            class="button-secondary"
-            href="https://www.youtube.com/live/QD8hZmt0VPU?si=SEwD-lvisHLJOOdu"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/obs.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>Minecraft Videos</h2>
-          <p>Sept-Oct 2020</p>
-          <p>
-            Content Creation, OBS Setup, Video Editing and Thumbnail Creation
-          </p>
-
-          <a
-            class="button-secondary"
-            href="https://youtube.com/playlist?list=PL5MuW9KkxcUg6ps_3uMAfF7r7rN63_Xty&amp;si=pxyA_TnNcsGmJs8P"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/mc.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-2">
-          <h2>Minecraft World Designer Assistant (MGU.ONE)</h2>
-          <p>Aug-Sept 2020</p>
-          <p>Creative Design, Teamwork, Problem-Solving, Attention to Detail</p>
-
-          <a
-            class="button-secondary"
-            href="https://topminecraftservers.org/server/10331"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/mgu-bedwars-map.png" alt="" />
-      </div>
-
-      <div class="project-container">
-        <div class="project-info order-1">
-          <h2>Community Coordinator (Discord Server: MGU.ONE)</h2>
-          <p>July-Oct 2020</p>
-          <p>Event Organizing, Discord Community Moderator, Helper</p>
-
-          <a
-            class="button-secondary"
-            href="https://discord.gg/mgu"
-            target="_blank"
-            >View Projects</a
-          >
-        </div>
-        <img src="./resources/images/mgu-bedwars-event.jpg" alt="" />
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="info">
-        <!-- <h5>Diesgner</h5> -->
-        <h1 class="underline">About Me</h1>
-        <p>
-          I am Harsh RB, a dynamic individual with a passion for web
-          development, artistic expression, and gaming. I am a skilled web
-          developer, adept at HTML, CSS, JavaScript, Node.js, React, and more.
-          As an artist and content creator, I bring ideas to life through 3D
-          modeling, animation, video editing, and photo manipulation. My gaming
-          experience extends from Minecraft world design to competitive events,
-          showcasing my diverse skill set, creativity, and commitment to every
-          endeavor.
-        </p>
-        <a href="./resources/Harsh RB Resume.pdf" class="button-primary"
-          >Resume</a
+    <!-- Main Content -->
+    <main class="pt-20">
+      <!-- Hero Section -->
+      <section
+        id="home"
+        class="min-h-screen flex items-center justify-center relative overflow-hidden section"
+      >
+        <div
+          class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center"
         >
-        <!-- <a href="#projects" class="button-secondary">LinkedIn</a> -->
-      </div>
-      <div class="img">
-        <!-- <svg viewBox="0 0 779 707">
-          <use xlink:href="#cover"></use>
-        </svg> -->
-        <img src="./resources/images/profile.jpg" alt="" />
-      </div>
-    </section>
-
-    <section id="resume">
-      <h1 class="grid-full"><span class="underline">Personal Info</span></h1>
-      <div class="personal">
-        <div>
-          <p>name:</p>
-          <h5>Harsh R Bagtharia</h5>
-        </div>
-
-        <div>
-          <p>age:</p>
-          <h5>18</h5>
-        </div>
-
-        <div>
-          <p>phoneCode:</p>
-          <h5>+91</h5>
-        </div>
-
-        <div>
-          <p>phoneNo:</p>
-          <h5>7660873570</h5>
-        </div>
-
-        <div>
-          <p>city:</p>
-          <h5>Hyderabad</h5>
-        </div>
-
-        <div>
-          <p>email:</p>
-          <h5>harshrb2424@gmail.com</h5>
-        </div>
-
-        <div>
-          <p>languages:</p>
-          <h5>English, Hindi, Telugu</h5>
-        </div>
-
-        <!--<div>
-            <p>Age:</p>
-            <h5>18</h5>
-          </div>
-          <div>
-            <p>PhoneNo:</p>
-            <h5>+917660873570</h5>
-          </div>
-          <div>
-            <p>City:</p>
-            <h5>Hyderabad</h5>
-          </div>
-          <div>
-            <p>email:</p>
-            <h5>harshrb2424@gmail.com</h5>
-          </div>
-          <div>
-            <p>Languages:</p>
-            <h5>English,Hindi,Telugu</h5>
-          </div> -->
-      </div>
-
-      <div class="skill">
-        <h4>Technical Skills:</h4>
-        <div>
-          <p class="svg-html"></p>
-
-          <p class="svg-css"></p>
-
-          <p class="svg-javascript"></p>
-
-          <p class="svg-express"></p>
-
-          <p class="svg-nodejs"></p>
-
-          <p class="svg-react"></p>
-
-          <p class="svg-python"></p>
-
-          <p class="svg-c"></p>
-
-          <p class="svg-blender"></p>
-
-          <p class="svg-github"></p>
-
-          <!-- <p class="svg-blender"></p>
-            <p class="svg-css"></p>
-            <p class="svg-nodejs"></p>
-            <p class="svg-react"></p>
-            <p class="svg-python"></p>
-            <p class="svg-c"></p> -->
-        </div>
-        <h4>Soft Skills:</h4>
-        <div>
-          <p>Collaboration</p>
-
-          <p>Problem-Solving</p>
-
-          <p>Adaptability</p>
-
-          <p>Networking</p>
-
-          <p>Customer Focus</p>
-        </div>
-      </div>
-      <!-- <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/2101px-Adobe_Premiere_Pro_CC_icon.svg.png" alt=""></div><div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/512px-Blender_logo_no_text.svg.png" alt=""></div><div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/640px-HTML5_logo_and_wordmark.svg.png" alt=""></div><div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png" alt=""></div><div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/640px-JavaScript-logo.png" alt=""></div><div><img src="https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png" alt=""></div><div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt=""></div><div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/695px-C_Programming_Language.svg.png" alt=""></div><div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt=""></div></div> -->
-      <!-- <div class="img">
-          <img src="https://pbs.twimg.com/media/FZFUlfqUIAALJ4o?format=jpg&name=medium" alt="">
-        </div> -->
-
-      <h1 class="grid-full"><span class="underline">Higher Education</span></h1>
-      <div class="College education">
-        <img
-          class="College"
-          src="https://mrce.in/assets/images/logo.png"
-          alt=""
-        />
-        <div>
-          <h3>Higher Education</h3>
-          <p class="edu">
-            B.Tech. Computer Science and Engineering (AI &amp; ML)
-          </p>
-          <h4>
-            <a href="https://mrce.in/">Malla Reddy College of Engineering</a>
-          </h4>
-          <p class="duration">2022-Present</p>
-        </div>
-      </div>
-      <div class="Inter education">
-        <img
-          class="Inter"
-          src="https://play-lh.googleusercontent.com/1DMKiIVH2UpeAgkTFujeBMj0Ujqo9Md8TIeakjWHKqProhFnveXl6YmlIFD1dU4_v7g"
-          alt=""
-        />
-        <div>
-          <h3>Inter Mediate</h3>
-          <p class="edu">XI &amp; XII</p>
-          <h4>
-            <a href="https://srichaitanya.net/">Sri Chaitanya Junior College</a>
-          </h4>
-          <p class="duration">2020-2022</p>
-        </div>
-      </div>
-      <div class="School education">
-        <img class="School" src="./resources/images/tps.jpeg" alt="" />
-        <div>
-          <h3>Secondery Education</h3>
-          <p class="edu">NUR to X</p>
-          <h4>
-            <a href="https://takshasilapublicschool.com/"
-              >Takshasila Public School</a
-            >
-          </h4>
-          <p class="duration">2007-2020</p>
-        </div>
-      </div>
-      <h1 class="grid-full"><span class="underline">Courses</span></h1>
-      <div class="webDev education">
-        <a
-          href="https://www.udemy.com/certificate/UC-22c2a1a7-05bd-451c-a601-200b601031f7/"
-          ><img src="./resources/images/WebDev.jpg" alt=""
-        /></a>
-        <div>
-          <img
-            class="webDev"
-            src="https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og"
-            alt=""
-          />
-          <div>
-            <p class="edu">Web Development</p>
-            <h4>
-              <a
-                href="https://www.udemy.com/course/the-complete-web-development-bootcamp/"
-                >The Complete 2023 Web Development Bootcamp, Dr. Angela Yu</a
+          <div class="md:w-1/2 mb-12 md:mb-0">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+              <span class="gradient-text">Hello, I'm</span>
+              <span id="hero-name" class="block text-white mt-2"
+                >Loading...</span
               >
-            </h4>
-            <p class="duration">2022-2024</p>
+            </h1>
+            <h2 id="hero-title" class="text-2xl md:text-3xl text-gray-300 mb-6">
+              Loading...
+            </h2>
+            <p
+              id="hero-description"
+              class="text-lg text-gray-400 mb-8 max-w-lg"
+            >
+              Loading...
+            </p>
+            <div class="flex space-x-4">
+              <a
+                id="hero-cta"
+                href="#contact"
+                class="px-6 py-3 bg-primary-dark hover:bg-primary-light rounded-full font-medium transition-colors glow"
+              >
+                Get In Touch
+              </a>
+              <a
+                href="#projects"
+                class="px-6 py-3 border border-gray-600 hover:border-primary-dark text-gray-300 hover:text-white rounded-full font-medium transition-colors"
+              >
+                View Projects
+              </a>
+            </div>
+            <div id="social-links" class="mt-8 flex space-x-4">
+              <!-- Social links will be populated by JS -->
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center relative">
+            <div class="relative">
+              <div
+                class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-dark glow"
+              >
+                <img
+                  id="hero-image"
+                  src=""
+                  alt="Profile"
+                  class="w-full object-cover animate-float"
+                />
+              </div>
+              <div
+                class="absolute -bottom-6 -left-6 bg-dark-800 p-4 rounded-lg shadow-lg"
+              >
+                <div class="flex items-center">
+                  <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                  <span class="text-sm">Learning & Working</span>
+                </div>
+              </div>
+              <div
+                class="absolute -top-6 -right-6 bg-dark-800 p-3 rounded-full animate-spin-slow"
+              >
+                <div
+                  class="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-primary-dark to-purple-500"
+                >
+                  <i class="fas fa-code text-white"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-20 bg-dark-800 section">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+            <span class="gradient-text">About Me</span>
+          </h2>
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+              <div class="bg-dark-900 rounded-xl p-8 card-hover">
+                <h3 id="about-title" class="text-2xl font-bold mb-4">
+                  Loading...
+                </h3>
+                <p id="about-description" class="text-gray-400 mb-6">
+                  Loading...
+                </p>
+                <div id="skills" class="flex flex-wrap gap-3">
+                  <!-- Skills will be populated by JS -->
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2">
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  class="bg-dark-900 rounded-xl p-6 card-hover animate-float"
+                >
+                  <i class="fas fa-code text-3xl mb-4 text-primary-dark"></i>
+                  <h3 class="text-xl font-bold mb-2">Clean Code</h3>
+                  <p class="text-gray-400">
+                    I write maintainable and efficient code following best
+                    practices.
+                  </p>
+                </div>
+                <div
+                  class="bg-dark-900 rounded-xl p-6 card-hover animate-float-reverse"
+                >
+                  <i
+                    class="fas fa-mobile-alt text-3xl mb-4 text-secondary-dark"
+                  ></i>
+                  <h3 class="text-xl font-bold mb-2">Responsive</h3>
+                  <p class="text-gray-400">
+                    My designs work perfectly on any device size and resolution.
+                  </p>
+                </div>
+                <div
+                  class="bg-dark-900 rounded-xl p-6 card-hover animate-float-reverse"
+                >
+                  <i class="fas fa-bolt text-3xl mb-4 text-yellow-500"></i>
+                  <h3 class="text-xl font-bold mb-2">Fast</h3>
+                  <p class="text-gray-400">
+                    I optimize applications for maximum speed and performance.
+                  </p>
+                </div>
+                <div
+                  class="bg-dark-900 rounded-xl p-6 card-hover animate-float"
+                >
+                  <i class="fas fa-server text-3xl mb-4 text-blue-500"></i>
+                  <h3 class="text-xl font-bold mb-2">Full Stack</h3>
+                  <p class="text-gray-400">
+                    I can handle both frontend and backend development with
+                    ease.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Contact Section -->
+      <section id="contact" class="py-20 section">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+            <span class="gradient-text">Get In Touch</span>
+          </h2>
+          <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            Have a project in mind or want to collaborate? Feel free to reach
+            out!
+          </p>
+
+          <div class="bg-dark-900 rounded-xl p-8 card-hover h-full">
+            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+            <div id="contact-info" class="space-y-4">
+              <!-- Contact info will be populated by JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Experience Section -->
+      <section id="experience" class="py-20 bg-dark-800 section">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+            <span class="gradient-text">My Journey</span>
+          </h2>
+
+          <div class="relative timeline pl-8">
+            <div id="experience-container">
+              <!-- Experience items will be populated by JS -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-20 section">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+            <span class="gradient-text">Things I’ve Done</span>
+          </h2>
+          <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            A mix of creative, technical, and organizational work that highlights my diverse interests.
+          </p>
+
+          <div
+            id="projects-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <!-- Projects will be populated by JS -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 py-8 border-t border-dark-800">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <a href="#" class="text-xl font-bold gradient-text">Harsh RB.</a>
+            <p class="text-gray-400 mt-2">Developer & Designer</p>
+          </div>
+          <div id="footer-social" class="flex space-x-4">
+            <!-- Social links will be populated by JS -->
+          </div>
+        </div>
+        <div class="mt-8 text-center text-gray-500 text-sm">
+          <p>&copy; <span id="current-year"></span> Harsh R Bagtharia</p>
+        </div>
       </div>
-    </section>
-
-    <section id="socials">
-      <h1 class="underline">Contact</h1>
-      <div class="social-links">
-        <div class="link">
-          <a href="https://discordapp.com/users/638031965139763232">
-            <p class="svg svg-Discord"></p>
-            <p>Discord</p>
-            <p class="svg-arrow"></p>
-          </a>
-        </div>
-
-        <div class="link">
-          <a href="https://www.facebook.com/harsh.rb.9/">
-            <p class="svg svg-Facebook"></p>
-            <p>Facebook</p>
-            <p class="svg-arrow"></p>
-          </a>
-        </div>
-
-        <div class="link">
-          <a href="https://in.pinterest.com/polyharsh/">
-            <p class="svg svg-Pinterest"></p>
-            <p>Pinterest</p>
-            <p class="svg-arrow"></p>
-          </a>
-        </div>
-
-        <div class="link">
-          <a href="https://www.reddit.com/user/H55_HarshRB">
-            <p class="svg svg-Reddit"></p>
-            <p>Reddit</p>
-            <p class="svg-arrow"></p>
-          </a>
-        </div>
-
-        <div class="link">
-          <a href="https://t.me/kn8hd">
-            <p class="svg svg-Telegram"></p>
-            <p>Telegram</p>
-            <p class="svg-arrow"></p>
-          </a>
-        </div>
-
-        <div class="link">
-          <a href="https://www.threads.net/@harshrb55">
-            <p class="svg svg-Threads"></p>
-            <p>Threads</p>
-            <p class="svg-arrow"></p>
-          </a>
-        </div>
-
-        <div class="link">
-          <a href="https://www.youtube.com/@HarshRB3D">
-            <p class="svg svg-YouTube"></p>
-            <p>YouTube</p>
-            <p class="svg-arrow"></p>
-          </a>
-        </div>
-      </div>
-      <form id="myForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" autocomplete="off" required />
-
-        <br />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <br />
-
-        <a
-          type="button"
-          id="submitButton"
-          class="button-primary"
-          target="_blank"
-          >Whatsapp</a
-        >
-        <a type="button" class="button-secondary mail-link" target="_blank"
-          >Mail</a
-        >
-      </form>
-    </section>
-
-    <section id="contacts">
-      <div>
-        <a class="svg-mail mail-link" href="mailto:harshrb05@gmail.com"></a>
-        <a class="mail-link">harshrb05@gmail.com</a>
-      </div>
-      <div>
-        <a
-          class="svg-LinkedIn"
-          href="https://www.linkedin.com/in/harshrb05/"
-        ></a>
-
-        <a class="svg-GitHub" href="https://github.com/Harshrb2424"></a>
-
-        <a
-          class="svg-Instagram"
-          href="https://www.instagram.com/harshrb.dev"
-        ></a>
-
-        <a
-          class="svg-WhatsApp"
-          href="https://wa.me/917660873570?text=Your%20portfolio%20really%20caught%20my%20eye%2C%20and%20I&#39;m%20excited%20about%20the%20possibility%20of%20working%20together.%20I%20have%20a%20few%20questions%20and%20ideas%20to%20discuss.%20Could%20we%20set%20up%20a%20time%20for%20a%20quick%20call%20or%20meeting%3F%0A%0A"
-        ></a>
-
-        <!-- 
-        <a class="svg-instagram" href=""></a>
-        <a class="svg-linkedin" href=""></a> -->
-      </div>
-    </section>
-
-    <footer>
-      <div class="svg-footer"></div>
     </footer>
 
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./profile-1.js"></script>
+    <script>
+      // Portfolio data in JSON format
+      const portfolioData = {
+        hero: {
+          name: "Harsh R Bagtharia",
+          title: "Full Stack Developer | AI/ML Enthusiast | UI/UX Designer",
+          description:
+            "Computer Science Engineering student specializing in AI/ML with strong full-stack skills. Proficient in Python, JavaScript, ReactJS, Node.js, ASP.NET, and TensorFlow. Builds scalable, intuitive, intelligent solutions using Figma, Blender, Docker, and AWS.",
+          image: "./resources/images/Harsh R Bagtharia.jpg",
+          cta: "Let's Talk",
+        },
+        about: {
+          title: "Coding With Passion",
+          description:
+            "Currently pursuing a B.Tech in Computer Science Engineering (AI & ML) with a CGPA of 8.55. I specialize in crafting full-stack applications that blend strong logic with seamless design. As the Design Head of the Plexus Club, I’ve led creative projects involving web, desktop apps, and branding. I also have teaching experience and a strong track record of delivering impactful academic and freelance projects.",
+          skills: [
+            "JavaScript",
+            "Python",
+            "C#",
+            "Java",
+            "ReactJS",
+            "Next.js",
+            "Node.js",
+            "Express.js",
+            "ASP.NET",
+            "Django",
+            ".NET Core",
+            "FastAPI",
+            "Firebase",
+            "WebSockets",
+            "PostgreSQL",
+            "MySQL",
+            "MongoDB",
+            "TensorFlow",
+            "PyTorch",
+            "Scikit-learn",
+            "Pandas",
+            "NumPy",
+            "UI/UX Design",
+            "Figma",
+            "Docker",
+            "AWS",
+            "Git",
+            "Blender",
+          ],
+        },
+        projects: [
+          {
+            title: "Tenexis",
+            description:
+              "A platform for college students to buy, sell, and rent products, with student shops and carpooling features.",
+            technologies: [
+              "React",
+              "Node.js",
+              "PostgreSQL",
+              "Docker",
+              "WhatsApp API",
+              "Cloudflare",
+            ],
+            image: "./resources/images/tenexis.png",
+            link: "https://tenexis.in/",
+            github: "#",
+          },
+          {
+            title: "Plexus Club Platform",
+            description:
+              "Designed and developed a platform for managing events and competitions, with several Electron.js desktop apps.",
+            technologies: ["Figma", "React", "Tailwind CSS", "Electron.js"],
+            image: "./resources/images/plexus.png",
+            link: "https://plexusclub.github.io/",
+            github: "https://github.com/PlexusClub/PlexusClub.github.io",
+          },
+          {
+            title: "JNTUH Notes & Result Fetcher",
+            description:
+              "A repository of notes and syllabi for CSE-AIML students, with a Python web scraper for result fetching.",
+            technologies: ["Python", "GitHub Pages", "Web Scraping", "SQL"],
+            image:
+              "./resources/images/jntuh-notes.png",
+            link: "#",
+            github: "https://github.com/Harshrb2424/Jntuh-R22-Notes",
+          },
+          {
+            title: "Dynamic Wallpaper",
+            description:
+              "Smart wallpapers for classroom displays that dynamically show schedules and faculty details in real time.",
+            technologies: ["Python", "Scheduling", "UI Automation"],
+            image:
+              "./resources/images/class.png",
+            link: "#",
+            github: "#",
+          },
+          {
+            title: "Code Marathon Competition",
+            description:
+              "Technical coordination for a coding competition under IIC-MRCE.",
+            technologies: ["Event Management", "Web", "GitHub Pages"],
+            image: "./resources/images/codemarathon.png",
+            link: "https://iic-mrce.github.io/CodeMarathon/",
+            github: "#",
+          },
+          {
+            title: "Project-UniEvent-Node (Hackathon Winner)",
+            description:
+              "Hackathon project focused on backend development for a university event platform.",
+            technologies: ["Node.js", "Express", "MongoDB"],
+            image:
+              "https://raw.githubusercontent.com/ShaikhAman01/Project-UniEvent-Node/main/public/Images/HomePage.png",
+            link: "https://github.com/ShaikhAman01/Project-UniEvent-Node",
+            github: "https://github.com/ShaikhAman01/Project-UniEvent-Node",
+          },
+          {
+            title: "Janaki (Unreleased Short Film)",
+            description:
+              "Handled post-production editing including visuals and photos.",
+            technologies: ["Premiere Pro", "Photoshop"],
+            image: "./resources/images/janaki.png",
+            link: "#",
+            github: "#",
+          },
+          {
+            title: "Youtube Shorts – Short Snippets",
+            description:
+              "Content creation and editing for a dedicated Shorts channel.",
+            technologies: ["OBS", "Video Editing", "YouTube"],
+            image: "./resources/images/ss.png",
+            link: "https://www.youtube.com/@Short.snippets",
+            github: "#",
+          },
+          {
+            title: "Instagram Content Creation (@Harshrb.3d)",
+            description:
+              "Produced 3D animations and creative renders for Instagram content.",
+            technologies: ["Blender", "Photoshop", "Figma"],
+            image: "./resources/images/ig.png",
+            link: "https://www.instagram.com/harshrb.3d",
+            github: "#",
+          },
+          {
+            title: "Blender Timelapse Series (YouTube)",
+            description:
+              "Created timelapse videos showcasing modeling and animation workflows.",
+            technologies: ["Blender", "OBS", "Video Editing"],
+            image: "./resources/images/timelapse.png",
+            link: "https://youtube.com/playlist?list=PL5MuW9KkxcUj7q-tIZmJHpINRqfdh2foV",
+            github: "#",
+          },
+          {
+            title: "FMC Weekend 2022 – IIT BHU Varanasi",
+            description:
+              "3D modeling and animation competition entry at a national design event.",
+            technologies: ["Blender", "Animation", "Rendering"],
+            image: "./resources/images/blender.png",
+            link: "https://www.instagram.com/p/CaAZJ3mlefj/",
+            github: "#",
+          },
+          {
+            title: "Streaming Presents – Shrey_INDIA",
+            description:
+              "End-to-end setup for live streaming and video editing for a YouTube creator.",
+            technologies: ["OBS", "Photoshop", "Premiere Pro"],
+            image: "./resources/images/obs.png",
+            link: "https://www.youtube.com/live/QD8hZmt0VPU",
+            github: "#",
+          },
+          {
+            title: "Minecraft Videos (YouTube)",
+            description:
+              "Gaming content creation including recording, editing, and publishing.",
+            technologies: ["OBS", "YouTube", "Video Editing"],
+            image: "./resources/images/mc.png",
+            link: "https://youtube.com/playlist?list=PL5MuW9KkxcUg6ps_3uMAfF7r7rN63_Xty",
+            github: "#",
+          },
+          {
+            title: "Minecraft World Design – MGU.ONE",
+            description:
+              "Designed maps for Minecraft Bedwars with creative problem-solving.",
+            technologies: ["Minecraft", "Teamwork", "Design"],
+            image: "./resources/images/mgu-bedwars-map.png",
+            link: "https://topminecraftservers.org/server/10331",
+            github: "#",
+          },
+          {
+            title: "Community Coordinator – MGU.ONE Discord",
+            description:
+              "Organized online events and moderated an active gaming community.",
+            technologies: ["Discord", "Community Management", "Event Hosting"],
+            image: "./resources/images/mgu-bedwars-event.jpg",
+            link: "https://discord.gg/mgu",
+            github: "#",
+          },
+        ],
+        experience: [
+          {
+            title: "ASP.NET Developer",
+            company: "YAR Tech Services",
+            period: "Oct 2024 – Mar 2025",
+            description:
+              "Developed admin panels and payslip generators using ASP.NET. Contributed to design, development, and testing in a collaborative environment.",
+            location: "Remote",
+          },
+          {
+            title: "Tutor",
+            company: "Smart Minds Tutorials",
+            period: "May 2024 – Jun 2024",
+            description:
+              "Taught computer fundamentals, Java, C, and IT tools to university and ICSE students. Emphasized practical understanding and concept clarity.",
+            location: "Hyderabad, India",
+          },
+        ],
+        contact: {
+          email: "harshrb05@gmail.com",
+          phone: "+91-7660873570",
+          location: "Hyderabad, India",
+        },
+        social: [
+          {
+            name: "GitHub",
+            icon: "fab fa-github",
+            url: "https://github.com/harshrb2424",
+          },
+          {
+            name: "LinkedIn",
+            icon: "fab fa-linkedin-in",
+            url: "https://linkedin.com/in/harshrb05/",
+          },
+          {
+            name: "Twitter",
+            icon: "fab fa-twitter",
+            url: "https://x.com/KN83D",
+          },
+        ],
+      };
+
+      // DOM elements
+      const elements = {
+        heroName: document.getElementById("hero-name"),
+        heroTitle: document.getElementById("hero-title"),
+        heroDescription: document.getElementById("hero-description"),
+        heroImage: document.getElementById("hero-image"),
+        heroCta: document.getElementById("hero-cta"),
+        socialLinks: document.getElementById("social-links"),
+        aboutTitle: document.getElementById("about-title"),
+        aboutDescription: document.getElementById("about-description"),
+        skillsContainer: document.getElementById("skills"),
+        projectsContainer: document.getElementById("projects-container"),
+        experienceContainer: document.getElementById("experience-container"),
+        contactInfo: document.getElementById("contact-info"),
+        footerSocial: document.getElementById("footer-social"),
+        currentYear: document.getElementById("current-year"),
+        // themeToggle: document.getElementById("theme-toggle"),
+      };
+
+      // Initialize the portfolio
+      function initPortfolio() {
+        // Set current year
+        elements.currentYear.textContent = new Date().getFullYear();
+
+        // Load hero section
+        loadHeroSection();
+
+        // Load about section
+        loadAboutSection();
+
+        // Load projects
+        loadProjects();
+
+        // Load experience
+        loadExperience();
+
+        // Load contact info
+        loadContactInfo();
+
+        // Load social links
+        loadSocialLinks();
+
+        // Initialize theme toggle
+        // initThemeToggle();
+
+        // Initialize scroll animations
+        initScrollAnimations();
+      }
+
+      // Load hero section
+      function loadHeroSection() {
+        const { hero } = portfolioData;
+
+        elements.heroName.textContent = hero.name;
+        elements.heroTitle.textContent = hero.title;
+        elements.heroDescription.textContent = hero.description;
+        elements.heroImage.src = hero.image;
+        elements.heroImage.alt = `${hero.name} profile picture`;
+        elements.heroCta.textContent = hero.cta;
+      }
+
+      // Load about section
+      function loadAboutSection() {
+        const { about } = portfolioData;
+
+        elements.aboutTitle.textContent = about.title;
+        elements.aboutDescription.textContent = about.description;
+
+        // Load skills
+        about.skills.forEach((skill) => {
+          const skillElement = document.createElement("div");
+          skillElement.className =
+            "bg-primary-dark/20 text-primary-dark px-4 py-2 rounded-full text-sm font-medium";
+          skillElement.textContent = skill;
+          elements.skillsContainer.appendChild(skillElement);
+        });
+      }
+
+      // Load projects
+      function loadProjects() {
+        const { projects } = portfolioData;
+
+        projects.forEach((project) => {
+          const projectElement = document.createElement("div");
+          projectElement.className =
+            "bg-dark-900 rounded-xl overflow-hidden card-hover";
+
+          // Conditionally render link buttons
+          const linkHTML =
+            project.link !== "#"
+              ? `<a href="${project.link}" target="_blank" class="text-primary-dark hover:text-primary-light transition-colors">
+              <i class="fas fa-external-link-alt"></i> View
+           </a>`
+              : "";
+
+          const githubHTML =
+            project.github !== "#"
+              ? `<a href="${project.github}" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fab fa-github"></i> Code
+           </a>`
+              : "";
+
+          // Inject final HTML
+          projectElement.innerHTML = `
+      <div class="h-48 overflow-hidden">
+        <img src="${project.image}" alt="${
+            project.title
+          }" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+        <p class="text-gray-400 mb-4">${project.description}</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          ${project.technologies
+            .map(
+              (tech) =>
+                `<span class="bg-dark-800 text-gray-300 px-3 py-1 rounded-full text-xs">${tech}</span>`
+            )
+            .join("")}
+        </div>
+        <div class="flex space-x-3">
+          ${linkHTML}
+          ${githubHTML}
+        </div>
+      </div>
+    `;
+
+          elements.projectsContainer.appendChild(projectElement);
+        });
+      }
+
+      // Load experience
+      function loadExperience() {
+        const { experience } = portfolioData;
+
+        experience.forEach((exp) => {
+          const expElement = document.createElement("div");
+          expElement.className = "relative pl-8 mb-8 timeline-item";
+          expElement.innerHTML = `
+                    <div class="bg-dark-900 rounded-xl p-6 card-hover">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">${exp.title}</h3>
+                            <span class="bg-primary-dark/20 text-primary-dark px-3 py-1 rounded-full text-sm">${exp.period}</span>
+                        </div>
+                        <h4 class="text-gray-300 mb-3">${exp.company} • ${exp.location}</h4>
+                        <p class="text-gray-400">${exp.description}</p>
+                    </div>
+                `;
+          elements.experienceContainer.appendChild(expElement);
+        });
+      }
+
+      // Load contact info
+      function loadContactInfo() {
+        const { contact } = portfolioData;
+
+        elements.contactInfo.innerHTML = `
+                <div class="flex items-start">
+                    <div class="bg-primary-dark/20 p-3 rounded-lg mr-4">
+                        <i class="fas fa-envelope text-primary-dark"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-300 font-medium">Email</h4>
+                        <a href="mailto:${
+                          contact.email
+                        }" class="text-gray-400 hover:text-primary-dark transition-colors">${
+          contact.email
+        }</a>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-primary-dark/20 p-3 rounded-lg mr-4">
+                        <i class="fas fa-phone-alt text-primary-dark"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-300 font-medium">Phone</h4>
+                        <a href="https://api.whatsapp.com/send/?phone=${contact.phone.replace(
+                          /\D/g,
+                          ""
+                        )}" class="text-gray-400 hover:text-primary-dark transition-colors">${
+          contact.phone
+        }</a>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-primary-dark/20 p-3 rounded-lg mr-4">
+                        <i class="fas fa-map-marker-alt text-primary-dark"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-300 font-medium">Location</h4>
+                        <p class="text-gray-400">${contact.location}</p>
+                    </div>
+                </div>
+            `;
+      }
+
+      // Load social links
+      function loadSocialLinks() {
+        const { social } = portfolioData;
+
+        // Hero social links
+        social.forEach((link) => {
+          const linkElement = document.createElement("a");
+          linkElement.href = link.url;
+          linkElement.target = "_blank";
+          linkElement.className =
+            "w-12 h-12 rounded-full bg-dark-800 hover:bg-primary-dark flex items-center justify-center text-xl transition-colors";
+          linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+          linkElement.title = link.name;
+          elements.socialLinks.appendChild(linkElement);
+        });
+
+        // Footer social links
+        social.forEach((link) => {
+          const linkElement = document.createElement("a");
+          linkElement.href = link.url;
+          linkElement.target = "_blank";
+          linkElement.className =
+            "w-10 h-10 rounded-full bg-dark-800 hover:bg-primary-dark flex items-center justify-center text-lg transition-colors";
+          linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+          linkElement.title = link.name;
+          elements.footerSocial.appendChild(linkElement);
+        });
+      }
+
+      // Initialize theme toggle
+      // function initThemeToggle() {
+      //   const themeToggle = elements.themeToggle;
+      //   const icon = themeToggle.querySelector("i");
+
+      //   // Check for saved theme preference or use preferred color scheme
+      //   const savedTheme = localStorage.getItem("theme");
+      //   if (savedTheme) {
+      //     document.documentElement.classList.toggle(
+      //       "dark",
+      //       savedTheme === "dark"
+      //     );
+      //   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      //     document.documentElement.classList.add("dark");
+      //   }
+
+      //   // Update icon based on current theme
+      //   updateThemeIcon();
+
+      //   // Toggle theme on button click
+      //   themeToggle.addEventListener("click", () => {
+      //     document.documentElement.classList.toggle("dark");
+      //     const isDark = document.documentElement.classList.contains("dark");
+      //     localStorage.setItem("theme", isDark ? "dark" : "light");
+      //     updateThemeIcon();
+      //   });
+
+      //   function updateThemeIcon() {
+      //     const isDark = document.documentElement.classList.contains("dark");
+      //     icon.classList.toggle("fa-moon", !isDark);
+      //     icon.classList.toggle("fa-sun", isDark);
+      //   }
+      // }
+
+      // Initialize scroll animations
+      function initScrollAnimations() {
+        const sections = document.querySelectorAll(".section");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+      }
+
+      // Initialize the portfolio when DOM is loaded
+      document.addEventListener("DOMContentLoaded", initPortfolio);
+    </script>
   </body>
 </html>
