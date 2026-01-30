@@ -16,17 +16,18 @@
         theme: {
           extend: {
             colors: {
+              // UPDATED: Green/Emerald Theme
               primary: {
-                light: "#3b82f6",
-                dark: "#6366f1",
+                light: "#10b981", // Emerald 500
+                dark: "#059669",  // Emerald 600
               },
               secondary: {
-                light: "#10b981",
-                dark: "#10b981",
+                light: "#34d399", // Emerald 400
+                dark: "#064e3b",  // Emerald 900 (Deep Forest)
               },
               dark: {
-                800: "#1e293b",
-                900: "#0f172a",
+                800: "#06201b", // Very dark green-tinted charcoal
+                900: "#02110e", // Near-black forest green
               },
             },
             animation: {
@@ -54,20 +55,20 @@
 
       body {
         font-family: "Space Grotesk", sans-serif;
-        background-color: #0f172a;
-        color: #f8fafc;
-        overflow-x: hidden;
+        /* Default transition for smooth theme switching */
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
+      /* UPDATED: Green Gradient */
       .gradient-text {
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
-        background-image: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+        background-image: linear-gradient(90deg, #10b981, #048b61);
       }
 
       .glow {
-        box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.5); /* Green Glow */
       }
 
       .card-hover {
@@ -76,7 +77,7 @@
 
       .card-hover:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+        box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.3);
       }
 
       .blob {
@@ -108,7 +109,7 @@
         height: 2px;
         bottom: -2px;
         left: 0;
-        background-color: #6366f1;
+        background-color: #10b981; /* Green underline */
         transition: width 0.3s ease;
       }
 
@@ -124,9 +125,12 @@
         width: 16px;
         height: 16px;
         border-radius: 50%;
-        background: #6366f1;
-        border: 3px solid #1e293b;
+        background: #10b981;
+        border: 3px solid #06201b; /* Matches dark-800 */
       }
+      
+      /* Fix timeline dot border in light mode via specific selector if needed, 
+         but mostly blends okay. */
 
       .timeline::before {
         content: "";
@@ -139,64 +143,51 @@
       }
     </style>
   </head>
-  <body class="min-h-screen">
-    <!-- Blob background elements -->
+  <body class="min-h-screen bg-gray-50 text-gray-900 dark:bg-dark-900 dark:text-[#f8fafc]">
+    
     <div
-      class="blob bg-purple-500 w-64 h-64 rounded-full top-20 left-20 animate-float"
+      class="blob bg-emerald-500 w-64 h-64 rounded-full top-20 left-20 animate-float"
     ></div>
     <div
-      class="blob bg-blue-500 w-72 h-72 rounded-full bottom-40 right-20 animate-float-reverse"
+      class="blob bg-teal-500 w-72 h-72 rounded-full bottom-40 right-20 animate-float-reverse"
     ></div>
     <div
-      class="blob bg-pink-500 w-80 h-80 rounded-full top-1/3 right-1/4 animate-pulse-slow"
+      class="blob bg-green-500 w-80 h-80 rounded-full top-1/3 right-1/4 animate-pulse-slow"
     ></div>
 
-    <!-- Navigation -->
     <nav
-      class="fixed w-full bg-dark-900/80 backdrop-blur-md z-50 border-b border-dark-800"
+      class="fixed w-full bg-white/80 dark:bg-dark-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-dark-800 transition-colors duration-300"
     >
       <div class="container mx-auto px-6 py-4">
         <div class="flex justify-between items-center">
           <a href="#" class="text-2xl font-bold gradient-text">Harsh RB.</a>
           <div class="hidden md:flex space-x-8">
-            <a href="#home" class="nav-link text-gray-300 hover:text-white"
+            <a href="#home" class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
               >Home</a
             >
-            <a href="#about" class="nav-link text-gray-300 hover:text-white"
+            <a href="#about" class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
               >About</a
             >
-            <a href="#projects" class="nav-link text-gray-300 hover:text-white"
+            <a href="#projects" class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
               >Projects</a
             >
             <a
               href="#experience"
-              class="nav-link text-gray-300 hover:text-white"
+              class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
               >Experience</a
             >
-            <a href="#contact" class="nav-link text-gray-300 hover:text-white"
+            <a href="#contact" class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
               >Contact</a
             >
           </div>
-          <!-- <div class="flex items-center space-x-4">
-            <button
-              id="theme-toggle"
-              class="p-2 rounded-full hover:bg-dark-800 transition-colors"
-            >
-              <i class="fas fa-moon text-gray-300"></i>
-            </button>
-            <button
-              class="md:hidden p-2 rounded-full hover:bg-dark-800 transition-colors"
-            >
-              <i class="fas fa-bars text-gray-300"></i>
-            </button>
-          </div> -->
+          <button class="md:hidden text-gray-600 dark:text-gray-300">
+             <i class="fas fa-bars"></i>
+           </button>
         </div>
       </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="pt-20">
-      <!-- Hero Section -->
       <section
         id="home"
         class="min-h-screen flex items-center justify-center relative overflow-hidden section"
@@ -205,18 +196,18 @@
           class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center"
         >
           <div class="md:w-1/2 mb-12 md:mb-0">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
               <span class="gradient-text">Hello, I'm</span>
-              <span id="hero-name" class="block text-white mt-2"
+              <span id="hero-name" class="block mt-2"
                 >Loading...</span
               >
             </h1>
-            <h2 id="hero-title" class="text-2xl md:text-3xl text-gray-300 mb-6">
+            <h2 id="hero-title" class="text-2xl md:text-3xl text-emerald-600 dark:text-emerald-400 mb-6">
               Loading...
             </h2>
             <p
               id="hero-description"
-              class="text-lg text-gray-400 mb-8 max-w-lg"
+              class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg"
             >
               Loading...
             </p>
@@ -224,25 +215,24 @@
               <a
                 id="hero-cta"
                 href="#contact"
-                class="px-6 py-3 bg-primary-dark hover:bg-primary-light rounded-full font-medium transition-colors glow"
+                class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full font-medium transition-colors glow"
               >
                 Get In Touch
               </a>
               <a
-                href="#projects"
-                class="px-6 py-3 border border-gray-600 hover:border-primary-dark text-gray-300 hover:text-white rounded-full font-medium transition-colors"
+                href="Harsh_RB_Resume.pdf"
+                class="px-6 py-3 border border-gray-400 dark:border-gray-600 hover:border-emerald-500 text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white rounded-full font-medium transition-colors"
               >
-                View Projects
+                Resume
               </a>
             </div>
             <div id="social-links" class="mt-8 flex space-x-4">
-              <!-- Social links will be populated by JS -->
-            </div>
+              </div>
           </div>
           <div class="md:w-1/2 flex justify-center relative">
             <div class="relative">
               <div
-                class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary-dark glow"
+                class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-emerald-500 glow"
               >
                 <img
                   id="hero-image"
@@ -252,18 +242,18 @@
                 />
               </div>
               <div
-                class="absolute -bottom-6 -left-6 bg-dark-800 p-4 rounded-lg shadow-lg"
+                class="absolute -bottom-6 -left-6 bg-white dark:bg-dark-800 p-4 rounded-lg shadow-lg"
               >
                 <div class="flex items-center">
-                  <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-                  <span class="text-sm">Learning & Working</span>
+                  <div class="w-3 h-3 rounded-full bg-emerald-500 mr-2"></div>
+                  <span class="text-sm font-medium text-gray-800 dark:text-gray-200">Learning & Working</span>
                 </div>
               </div>
               <div
-                class="absolute -top-6 -right-6 bg-dark-800 p-3 rounded-full animate-spin-slow"
+                class="absolute -top-6 -right-6 bg-white dark:bg-dark-800 p-3 rounded-full animate-spin-slow shadow-md"
               >
                 <div
-                  class="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-primary-dark to-purple-500"
+                  class="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-500"
                 >
                   <i class="fas fa-code text-white"></i>
                 </div>
@@ -273,64 +263,62 @@
         </div>
       </section>
 
-      <!-- About Section -->
-      <section id="about" class="py-20 bg-dark-800 section">
+      <section id="about" class="py-20 bg-gray-100 dark:bg-dark-800 section transition-colors duration-300">
         <div class="container mx-auto px-6">
-          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white">
             <span class="gradient-text">About Me</span>
           </h2>
           <div class="flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-              <div class="bg-dark-900 rounded-xl p-8 card-hover">
-                <h3 id="about-title" class="text-2xl font-bold mb-4">
+              <div class="bg-white dark:bg-dark-900 rounded-xl p-8 card-hover shadow-md dark:shadow-none transition-colors duration-300">
+                <h3 id="about-title" class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
                   Loading...
                 </h3>
-                <p id="about-description" class="text-gray-400 mb-6">
+                <p id="about-description" class="text-gray-600 dark:text-gray-400 mb-6">
                   Loading...
                 </p>
                 <div id="skills" class="flex flex-wrap gap-3">
-                  <!-- Skills will be populated by JS -->
-                </div>
+                  </div>
               </div>
             </div>
             <div class="md:w-1/2">
               <div class="grid grid-cols-2 gap-4">
                 <div
-                  class="bg-dark-900 rounded-xl p-6 card-hover animate-float"
+                  class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover animate-float shadow-md dark:shadow-none transition-colors duration-300"
                 >
-                  <i class="fas fa-code text-3xl mb-4 text-primary-dark"></i>
-                  <h3 class="text-xl font-bold mb-2">Clean Code</h3>
-                  <p class="text-gray-400">
+                  <i class="fas fa-code text-3xl mb-4 text-emerald-500"></i>
+                  <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Clean Code</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
                     I write maintainable and efficient code following best
                     practices.
                   </p>
                 </div>
                 <div
-                  class="bg-dark-900 rounded-xl p-6 card-hover animate-float-reverse"
+                  class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover animate-float-reverse shadow-md dark:shadow-none transition-colors duration-300"
                 >
                   <i
-                    class="fas fa-mobile-alt text-3xl mb-4 text-secondary-dark"
+                    class="fas fa-mobile-alt text-3xl mb-4 text-teal-500"
                   ></i>
-                  <h3 class="text-xl font-bold mb-2">Responsive</h3>
-                  <p class="text-gray-400">
+                  <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Responsive</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
                     My designs work perfectly on any device size and resolution.
                   </p>
                 </div>
                 <div
-                  class="bg-dark-900 rounded-xl p-6 card-hover animate-float-reverse"
+                  class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover animate-float-reverse shadow-md dark:shadow-none transition-colors duration-300"
                 >
                   <i class="fas fa-bolt text-3xl mb-4 text-yellow-500"></i>
-                  <h3 class="text-xl font-bold mb-2">Fast</h3>
-                  <p class="text-gray-400">
+                  <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Fast</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
                     I optimize applications for maximum speed and performance.
                   </p>
                 </div>
                 <div
-                  class="bg-dark-900 rounded-xl p-6 card-hover animate-float"
+                  class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover animate-float shadow-md dark:shadow-none transition-colors duration-300"
                 >
                   <i class="fas fa-server text-3xl mb-4 text-blue-500"></i>
-                  <h3 class="text-xl font-bold mb-2">Full Stack</h3>
-                  <p class="text-gray-400">
+                  <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Full Stack</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
                     I can handle both frontend and backend development with
                     ease.
                   </p>
@@ -340,47 +328,44 @@
           </div>
         </div>
       </section>
-      <!-- Contact Section -->
+      
       <section id="contact" class="py-20 section">
         <div class="container mx-auto px-6">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
             <span class="gradient-text">Get In Touch</span>
           </h2>
-          <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? Feel free to reach
             out!
           </p>
 
-          <div class="bg-dark-900 rounded-xl p-8 card-hover h-full">
-            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+          <div class="bg-white dark:bg-dark-900 rounded-xl p-8 card-hover h-full shadow-md dark:shadow-none transition-colors duration-300">
+            <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Contact Information</h3>
             <div id="contact-info" class="space-y-4">
-              <!-- Contact info will be populated by JS -->
-            </div>
+              </div>
           </div>
         </div>
       </section>
-      <!-- Experience Section -->
-      <section id="experience" class="py-20 bg-dark-800 section">
+
+      <section id="experience" class="py-20 bg-gray-100 dark:bg-dark-800 section transition-colors duration-300">
         <div class="container mx-auto px-6">
-          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white">
             <span class="gradient-text">My Journey</span>
           </h2>
 
           <div class="relative timeline pl-8">
             <div id="experience-container">
-              <!-- Experience items will be populated by JS -->
-            </div>
+              </div>
           </div>
         </div>
       </section>
 
-      <!-- Projects Section -->
       <section id="projects" class="py-20 section">
         <div class="container mx-auto px-6">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
             <span class="gradient-text">Things I’ve Done</span>
           </h2>
-          <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
             A mix of creative, technical, and organizational work that highlights my diverse interests.
           </p>
 
@@ -388,23 +373,33 @@
             id="projects-container"
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            <!-- Projects will be populated by JS -->
-          </div>
+            </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark-900 py-8 border-t border-dark-800">
+    <footer class="bg-white dark:bg-dark-900 py-8 border-t border-gray-200 dark:border-dark-800 transition-colors duration-300">
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="mb-4 md:mb-0">
             <a href="#" class="text-xl font-bold gradient-text">Harsh RB.</a>
-            <p class="text-gray-400 mt-2">Developer & Designer</p>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">Developer & Designer</p>
           </div>
-          <div id="footer-social" class="flex space-x-4">
-            <!-- Social links will be populated by JS -->
+          
+          <div class="flex flex-col items-center md:items-end">
+             <div id="footer-social" class="flex space-x-4 mb-4">
+               </div>
+             
+             <button
+               id="footer-theme-toggle"
+               class="flex items-center space-x-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-dark-800 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors border border-gray-200 dark:border-dark-800"
+             >
+               <i class="fas fa-moon dark:hidden"></i>
+               <i class="fas fa-sun hidden dark:inline text-yellow-400"></i>
+               <span class="text-sm font-medium">Toggle Theme</span>
+             </button>
           </div>
+
         </div>
         <div class="mt-8 text-center text-gray-500 text-sm">
           <p>&copy; <span id="current-year"></span> Harsh R Bagtharia</p>
@@ -459,6 +454,20 @@
           ],
         },
         projects: [
+          {
+            title: "UniScreen",
+            description:
+              "Real-time information distribution across campus. Manage displays, schedule announcements, and keep students informed with UniScreen.",
+            technologies: [
+              "FastAPI",
+              "VOLO V8",
+              "PostgreSQL",
+              "Next JS",
+            ],
+            image: "https://uniscreen.vercel.app/images/class-room-screen.jpg",
+            link: "https://uniscreen.vercel.app/",
+            github: "#",
+          },
           {
             title: "Tenexis",
             description:
@@ -533,7 +542,7 @@
             github: "#",
           },
           {
-            title: "Youtube Shorts – Short Snippets",
+            title: "Youtube Shorts - Short Snippets",
             description:
               "Content creation and editing for a dedicated Shorts channel.",
             technologies: ["OBS", "Video Editing", "YouTube"],
@@ -560,7 +569,7 @@
             github: "#",
           },
           {
-            title: "FMC Weekend 2022 – IIT BHU Varanasi",
+            title: "FMC Weekend 2022 - IIT BHU Varanasi",
             description:
               "3D modeling and animation competition entry at a national design event.",
             technologies: ["Blender", "Animation", "Rendering"],
@@ -569,7 +578,7 @@
             github: "#",
           },
           {
-            title: "Streaming Presents – Shrey_INDIA",
+            title: "Streaming Presents - Shrey_INDIA",
             description:
               "End-to-end setup for live streaming and video editing for a YouTube creator.",
             technologies: ["OBS", "Photoshop", "Premiere Pro"],
@@ -587,7 +596,7 @@
             github: "#",
           },
           {
-            title: "Minecraft World Design – MGU.ONE",
+            title: "Minecraft World Design - MGU.ONE",
             description:
               "Designed maps for Minecraft Bedwars with creative problem-solving.",
             technologies: ["Minecraft", "Teamwork", "Design"],
@@ -596,7 +605,7 @@
             github: "#",
           },
           {
-            title: "Community Coordinator – MGU.ONE Discord",
+            title: "Community Coordinator - MGU.ONE Discord",
             description:
               "Organized online events and moderated an active gaming community.",
             technologies: ["Discord", "Community Management", "Event Hosting"],
@@ -606,10 +615,18 @@
           },
         ],
         experience: [
+           {
+            title: "Product Development Intern",
+            company: "Urbanloop (Mobility Transit Innovations Pvt Ltd)",
+            period: "June 2025 - Nov 2025",
+            description:
+              "Engineered and deployed three cross-platform mobile applications to the Google Play Store and Apple App Store using React Native.",
+            location: "Remote",
+          },
           {
             title: "ASP.NET Developer",
             company: "YAR Tech Services",
-            period: "Oct 2024 – Mar 2025",
+            period: "Oct 2024 - Mar 2025",
             description:
               "Developed admin panels and payslip generators using ASP.NET. Contributed to design, development, and testing in a collaborative environment.",
             location: "Remote",
@@ -617,7 +634,7 @@
           {
             title: "Tutor",
             company: "Smart Minds Tutorials",
-            period: "May 2024 – Jun 2024",
+            period: "May 2024 - Jun 2024",
             description:
               "Taught computer fundamentals, Java, C, and IT tools to university and ICSE students. Emphasized practical understanding and concept clarity.",
             location: "Hyderabad, India",
@@ -663,7 +680,7 @@
         contactInfo: document.getElementById("contact-info"),
         footerSocial: document.getElementById("footer-social"),
         currentYear: document.getElementById("current-year"),
-        // themeToggle: document.getElementById("theme-toggle"),
+        footerThemeToggle: document.getElementById("footer-theme-toggle"), // New Element
       };
 
       // Initialize the portfolio
@@ -671,26 +688,16 @@
         // Set current year
         elements.currentYear.textContent = new Date().getFullYear();
 
-        // Load hero section
+        // Load content
         loadHeroSection();
-
-        // Load about section
         loadAboutSection();
-
-        // Load projects
         loadProjects();
-
-        // Load experience
         loadExperience();
-
-        // Load contact info
         loadContactInfo();
-
-        // Load social links
         loadSocialLinks();
 
         // Initialize theme toggle
-        // initThemeToggle();
+        initThemeToggle();
 
         // Initialize scroll animations
         initScrollAnimations();
@@ -718,8 +725,9 @@
         // Load skills
         about.skills.forEach((skill) => {
           const skillElement = document.createElement("div");
+          // UPDATED: Support Light Mode
           skillElement.className =
-            "bg-primary-dark/20 text-primary-dark px-4 py-2 rounded-full text-sm font-medium";
+            "bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 px-4 py-2 rounded-full text-sm font-medium";
           skillElement.textContent = skill;
           elements.skillsContainer.appendChild(skillElement);
         });
@@ -731,39 +739,40 @@
 
         projects.forEach((project) => {
           const projectElement = document.createElement("div");
+          // UPDATED: Support Light Mode
           projectElement.className =
-            "bg-dark-900 rounded-xl overflow-hidden card-hover";
+            "bg-white dark:bg-dark-900 rounded-xl overflow-hidden card-hover shadow-lg dark:shadow-none";
 
           // Conditionally render link buttons
           const linkHTML =
             project.link !== "#"
-              ? `<a href="${project.link}" target="_blank" class="text-primary-dark hover:text-primary-light transition-colors">
+              ? `<a href="${project.link}" target="_blank" class="text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300 transition-colors">
               <i class="fas fa-external-link-alt"></i> View
            </a>`
               : "";
 
           const githubHTML =
             project.github !== "#"
-              ? `<a href="${project.github}" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+              ? `<a href="${project.github}" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
               <i class="fab fa-github"></i> Code
            </a>`
               : "";
 
-          // Inject final HTML
+          // Inject final HTML with Light Mode classes
           projectElement.innerHTML = `
-      <div class="h-48 overflow-hidden">
+      <div class="h-48 overflow-hidden bg-gray-200 dark:bg-gray-800">
         <img src="${project.image}" alt="${
             project.title
           }" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
       </div>
       <div class="p-6">
-        <h3 class="text-xl font-bold mb-2">${project.title}</h3>
-        <p class="text-gray-400 mb-4">${project.description}</p>
+        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">${project.title}</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">${project.description}</p>
         <div class="flex flex-wrap gap-2 mb-4">
           ${project.technologies
             .map(
               (tech) =>
-                `<span class="bg-dark-800 text-gray-300 px-3 py-1 rounded-full text-xs">${tech}</span>`
+                `<span class="bg-gray-100 dark:bg-dark-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-xs">${tech}</span>`
             )
             .join("")}
         </div>
@@ -785,14 +794,15 @@
         experience.forEach((exp) => {
           const expElement = document.createElement("div");
           expElement.className = "relative pl-8 mb-8 timeline-item";
+          // UPDATED: Support Light Mode
           expElement.innerHTML = `
-                    <div class="bg-dark-900 rounded-xl p-6 card-hover">
+                    <div class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover shadow-md dark:shadow-none">
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold">${exp.title}</h3>
-                            <span class="bg-primary-dark/20 text-primary-dark px-3 py-1 rounded-full text-sm">${exp.period}</span>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">${exp.title}</h3>
+                            <span class="bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 px-3 py-1 rounded-full text-sm">${exp.period}</span>
                         </div>
-                        <h4 class="text-gray-300 mb-3">${exp.company} • ${exp.location}</h4>
-                        <p class="text-gray-400">${exp.description}</p>
+                        <h4 class="text-gray-600 dark:text-gray-300 mb-3">${exp.company} • ${exp.location}</h4>
+                        <p class="text-gray-600 dark:text-gray-400">${exp.description}</p>
                     </div>
                 `;
           elements.experienceContainer.appendChild(expElement);
@@ -803,41 +813,42 @@
       function loadContactInfo() {
         const { contact } = portfolioData;
 
+        // UPDATED: Support Light Mode
         elements.contactInfo.innerHTML = `
                 <div class="flex items-start">
-                    <div class="bg-primary-dark/20 p-3 rounded-lg mr-4">
-                        <i class="fas fa-envelope text-primary-dark"></i>
+                    <div class="bg-emerald-100 dark:bg-emerald-900/20 p-3 rounded-lg mr-4">
+                        <i class="fas fa-envelope text-emerald-600 dark:text-emerald-400"></i>
                     </div>
                     <div>
-                        <h4 class="text-gray-300 font-medium">Email</h4>
+                        <h4 class="text-gray-900 dark:text-gray-300 font-medium">Email</h4>
                         <a href="mailto:${
                           contact.email
-                        }" class="text-gray-400 hover:text-primary-dark transition-colors">${
+                        }" class="text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">${
           contact.email
         }</a>
                     </div>
                 </div>
                 <div class="flex items-start">
-                    <div class="bg-primary-dark/20 p-3 rounded-lg mr-4">
-                        <i class="fas fa-phone-alt text-primary-dark"></i>
+                    <div class="bg-emerald-100 dark:bg-emerald-900/20 p-3 rounded-lg mr-4">
+                        <i class="fas fa-phone-alt text-emerald-600 dark:text-emerald-400"></i>
                     </div>
                     <div>
-                        <h4 class="text-gray-300 font-medium">Phone</h4>
+                        <h4 class="text-gray-900 dark:text-gray-300 font-medium">Phone</h4>
                         <a href="https://api.whatsapp.com/send/?phone=${contact.phone.replace(
                           /\D/g,
                           ""
-                        )}" class="text-gray-400 hover:text-primary-dark transition-colors">${
+                        )}" class="text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">${
           contact.phone
         }</a>
                     </div>
                 </div>
                 <div class="flex items-start">
-                    <div class="bg-primary-dark/20 p-3 rounded-lg mr-4">
-                        <i class="fas fa-map-marker-alt text-primary-dark"></i>
+                    <div class="bg-emerald-100 dark:bg-emerald-900/20 p-3 rounded-lg mr-4">
+                        <i class="fas fa-map-marker-alt text-emerald-600 dark:text-emerald-400"></i>
                     </div>
                     <div>
-                        <h4 class="text-gray-300 font-medium">Location</h4>
-                        <p class="text-gray-400">${contact.location}</p>
+                        <h4 class="text-gray-900 dark:text-gray-300 font-medium">Location</h4>
+                        <p class="text-gray-600 dark:text-gray-400">${contact.location}</p>
                     </div>
                 </div>
             `;
@@ -852,8 +863,9 @@
           const linkElement = document.createElement("a");
           linkElement.href = link.url;
           linkElement.target = "_blank";
+          // UPDATED: Light/Dark classes
           linkElement.className =
-            "w-12 h-12 rounded-full bg-dark-800 hover:bg-primary-dark flex items-center justify-center text-xl transition-colors";
+            "w-12 h-12 rounded-full bg-gray-200 dark:bg-dark-800 text-gray-700 dark:text-white hover:bg-emerald-500 dark:hover:bg-emerald-600 hover:text-white flex items-center justify-center text-xl transition-colors shadow-sm dark:shadow-none";
           linkElement.innerHTML = `<i class="${link.icon}"></i>`;
           linkElement.title = link.name;
           elements.socialLinks.appendChild(linkElement);
@@ -865,7 +877,7 @@
           linkElement.href = link.url;
           linkElement.target = "_blank";
           linkElement.className =
-            "w-10 h-10 rounded-full bg-dark-800 hover:bg-primary-dark flex items-center justify-center text-lg transition-colors";
+            "w-10 h-10 rounded-full bg-gray-100 dark:bg-dark-800 text-gray-700 dark:text-white hover:bg-emerald-500 dark:hover:bg-emerald-600 hover:text-white flex items-center justify-center text-lg transition-colors shadow-sm dark:shadow-none";
           linkElement.innerHTML = `<i class="${link.icon}"></i>`;
           linkElement.title = link.name;
           elements.footerSocial.appendChild(linkElement);
@@ -873,38 +885,38 @@
       }
 
       // Initialize theme toggle
-      // function initThemeToggle() {
-      //   const themeToggle = elements.themeToggle;
-      //   const icon = themeToggle.querySelector("i");
+      function initThemeToggle() {
+        const themeToggle = elements.footerThemeToggle;
+        
+        // 1. Check local storage or system preference
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light") {
+            document.documentElement.classList.remove("dark");
+        } else if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+             // Default to dark if nothing saved, or check system preference
+             if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                 document.documentElement.classList.add("dark");
+             } else {
+                 // You can choose to default to light if you prefer
+                 document.documentElement.classList.add("dark"); 
+             }
+        }
 
-      //   // Check for saved theme preference or use preferred color scheme
-      //   const savedTheme = localStorage.getItem("theme");
-      //   if (savedTheme) {
-      //     document.documentElement.classList.toggle(
-      //       "dark",
-      //       savedTheme === "dark"
-      //     );
-      //   } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      //     document.documentElement.classList.add("dark");
-      //   }
-
-      //   // Update icon based on current theme
-      //   updateThemeIcon();
-
-      //   // Toggle theme on button click
-      //   themeToggle.addEventListener("click", () => {
-      //     document.documentElement.classList.toggle("dark");
-      //     const isDark = document.documentElement.classList.contains("dark");
-      //     localStorage.setItem("theme", isDark ? "dark" : "light");
-      //     updateThemeIcon();
-      //   });
-
-      //   function updateThemeIcon() {
-      //     const isDark = document.documentElement.classList.contains("dark");
-      //     icon.classList.toggle("fa-moon", !isDark);
-      //     icon.classList.toggle("fa-sun", isDark);
-      //   }
-      // }
+        // 2. Handle click
+        themeToggle.addEventListener("click", () => {
+          const isDark = document.documentElement.classList.contains("dark");
+          
+          if(isDark) {
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("theme", "light");
+          } else {
+              document.documentElement.classList.add("dark");
+              localStorage.setItem("theme", "dark");
+          }
+        });
+      }
 
       // Initialize scroll animations
       function initScrollAnimations() {
