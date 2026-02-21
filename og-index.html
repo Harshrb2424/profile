@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
+    <title>Harsh RB.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              // UPDATED: Green/Emerald Theme
+              primary: {
+                light: "#10b981", // Emerald 500
+                dark: "#059669",  // Emerald 600
+              },
+              secondary: {
+                light: "#34d399", // Emerald 400
+                dark: "#064e3b",  // Emerald 900 (Deep Forest)
+              },
+              dark: {
+                800: "#06201b", // Very dark green-tinted charcoal
+                900: "#02110e", // Near-black forest green
+              },
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "float-reverse": "float-reverse 5s ease-in-out infinite",
+              "pulse-slow": "pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "spin-slow": "spin 20s linear infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              "float-reverse": {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(20px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        /* Default transition for smooth theme switching */
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* UPDATED: Green Gradient */
+      .gradient-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: linear-gradient(90deg, #10b981, #048b61);
+      }
+
+      .glow {
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.5); /* Green Glow */
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.3);
+      }
+
+      .blob {
+        filter: blur(60px);
+        opacity: 0.2;
+        position: absolute;
+        z-index: -1;
+      }
+
+      .section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #10b981; /* Green underline */
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -24px;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #10b981;
+        border: 3px solid #06201b; /* Matches dark-800 */
+      }
+      
+      /* Fix timeline dot border in light mode via specific selector if needed, 
+         but mostly blends okay. */
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 15px;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: #334155;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-900 dark:bg-dark-900 dark:text-[#f8fafc]">
+    
+    <div
+      class="blob bg-emerald-500 w-64 h-64 rounded-full top-20 left-20 animate-float"
+    ></div>
+    <div
+      class="blob bg-teal-500 w-72 h-72 rounded-full bottom-40 right-20 animate-float-reverse"
+    ></div>
+    <div
+      class="blob bg-green-500 w-80 h-80 rounded-full top-1/3 right-1/4 animate-pulse-slow"
+    ></div>
+
+    <nav
+      class="fixed w-full bg-white/80 dark:bg-dark-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-dark-800 transition-colors duration-300"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-2xl font-bold gradient-text">Harsh RB.</a>
+          <div class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
+              >Home</a
+            >
+            <a href="#about" class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
+              >About</a
+            >
+            <a href="#projects" class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
+              >Projects</a
+            >
+            <a
+              href="#experience"
+              class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
+              >Experience</a
+            >
+            <a href="#contact" class="nav-link text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white"
+              >Contact</a
+            >
+          </div>
+          <button class="md:hidden text-gray-600 dark:text-gray-300">
+             <i class="fas fa-bars"></i>
+           </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      <section
+        id="home"
+        class="min-h-screen flex items-center justify-center relative overflow-hidden section"
+      >
+        <div
+          class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center"
+        >
+          <div class="md:w-1/2 mb-12 md:mb-0">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+              <span class="gradient-text">Hello, I'm</span>
+              <span id="hero-name" class="block mt-2"
+                >Loading...</span
+              >
+            </h1>
+            <h2 id="hero-title" class="text-2xl md:text-3xl text-emerald-600 dark:text-emerald-400 mb-6">
+              Loading...
+            </h2>
+            <p
+              id="hero-description"
+              class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg"
+            >
+              Loading...
+            </p>
+            <div class="flex space-x-4">
+              <a
+                id="hero-cta"
+                href="#contact"
+                class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full font-medium transition-colors glow"
+              >
+                Get In Touch
+              </a>
+              <a
+                href="Harsh_RB_Resume.pdf"
+                class="px-6 py-3 border border-gray-400 dark:border-gray-600 hover:border-emerald-500 text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-white rounded-full font-medium transition-colors"
+              >
+                Resume
+              </a>
+            </div>
+            <div id="social-links" class="mt-8 flex space-x-4">
+              </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center relative">
+            <div class="relative">
+              <div
+                class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-emerald-500 glow"
+              >
+                <img
+                  id="hero-image"
+                  src=""
+                  alt="Profile"
+                  class="w-full object-cover animate-float"
+                />
+              </div>
+              <div
+                class="absolute -bottom-6 -left-6 bg-white dark:bg-dark-800 p-4 rounded-lg shadow-lg"
+              >
+                <div class="flex items-center">
+                  <div class="w-3 h-3 rounded-full bg-emerald-500 mr-2"></div>
+                  <span class="text-sm font-medium text-gray-800 dark:text-gray-200">Learning & Working</span>
+                </div>
+              </div>
+              <div
+                class="absolute -top-6 -right-6 bg-white dark:bg-dark-800 p-3 rounded-full animate-spin-slow shadow-md"
+              >
+                <div
+                  class="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-500"
+                >
+                  <i class="fas fa-code text-white"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="py-20 bg-gray-100 dark:bg-dark-800 section transition-colors duration-300">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white">
+            <span class="gradient-text">About Me</span>
+          </h2>
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+              <div class="bg-white dark:bg-dark-900 rounded-xl p-8 card-hover shadow-md dark:shadow-none transition-colors duration-300">
+                <h3 id="about-title" class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+                  Loading...
+                </h3>
+                <p id="about-description" class="text-gray-600 dark:text-gray-400 mb-6">
+                  Loading...
+                </p>
+                <div id="skills" class="flex flex-wrap gap-3">
+                  </div>
+              </div>
+            </div>
+            <div class="md:w-1/2">
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover animate-float shadow-md dark:shadow-none transition-colors duration-300"
+                >
+                  <i class="fas fa-code text-3xl mb-4 text-emerald-500"></i>
+                  <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Clean Code</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    I write maintainable and efficient code following best
+                    practices.
+                  </p>
+                </div>
+                <div
+                  class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover animate-float-reverse shadow-md dark:shadow-none transition-colors duration-300"
+                >
+                  <i
+                    class="fas fa-mobile-alt text-3xl mb-4 text-teal-500"
+                  ></i>
+                  <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Responsive</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    My designs work perfectly on any device size and resolution.
+                  </p>
+                </div>
+                <div
+                  class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover animate-float-reverse shadow-md dark:shadow-none transition-colors duration-300"
+                >
+                  <i class="fas fa-bolt text-3xl mb-4 text-yellow-500"></i>
+                  <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Fast</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    I optimize applications for maximum speed and performance.
+                  </p>
+                </div>
+                <div
+                  class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover animate-float shadow-md dark:shadow-none transition-colors duration-300"
+                >
+                  <i class="fas fa-server text-3xl mb-4 text-blue-500"></i>
+                  <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Full Stack</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    I can handle both frontend and backend development with
+                    ease.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="contact" class="py-20 section">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
+            <span class="gradient-text">Get In Touch</span>
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            Have a project in mind or want to collaborate? Feel free to reach
+            out!
+          </p>
+
+          <div class="bg-white dark:bg-dark-900 rounded-xl p-8 card-hover h-full shadow-md dark:shadow-none transition-colors duration-300">
+            <h3 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Contact Information</h3>
+            <div id="contact-info" class="space-y-4">
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="py-20 bg-gray-100 dark:bg-dark-800 section transition-colors duration-300">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white">
+            <span class="gradient-text">My Journey</span>
+          </h2>
+
+          <div class="relative timeline pl-8">
+            <div id="experience-container">
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="py-20 section">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-white">
+            <span class="gradient-text">Things I’ve Done</span>
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            A mix of creative, technical, and organizational work that highlights my diverse interests.
+          </p>
+
+          <div
+            id="projects-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-white dark:bg-dark-900 py-8 border-t border-gray-200 dark:border-dark-800 transition-colors duration-300">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <a href="#" class="text-xl font-bold gradient-text">Harsh RB.</a>
+            <p class="text-gray-600 dark:text-gray-400 mt-2">Developer & Designer</p>
+          </div>
+          
+          <div class="flex flex-col items-center md:items-end">
+             <div id="footer-social" class="flex space-x-4 mb-4">
+               </div>
+             
+             <button
+               id="footer-theme-toggle"
+               class="flex items-center space-x-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-dark-800 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors border border-gray-200 dark:border-dark-800"
+             >
+               <i class="fas fa-moon dark:hidden"></i>
+               <i class="fas fa-sun hidden dark:inline text-yellow-400"></i>
+               <span class="text-sm font-medium">Toggle Theme</span>
+             </button>
+          </div>
+
+        </div>
+        <div class="mt-8 text-center text-gray-500 text-sm">
+          <p>&copy; <span id="current-year"></span> Harsh R Bagtharia</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Portfolio data in JSON format
+      const portfolioData = {
+        hero: {
+          name: "Harsh R Bagtharia",
+          title: "Full Stack Developer | AI/ML Enthusiast | UI/UX Designer",
+          description:
+            "Computer Science Engineering student specializing in AI/ML with strong full-stack skills. Proficient in Python, JavaScript, ReactJS, Node.js, ASP.NET, and TensorFlow. Builds scalable, intuitive, intelligent solutions using Figma, Blender, Docker, and AWS.",
+          image: "./public/Harsh R Bagtharia.jpg",
+          cta: "Let's Talk",
+        },
+        about: {
+          title: "Coding With Passion",
+          description:
+            "Currently pursuing a B.Tech in Computer Science Engineering (AI & ML) with a CGPA of 8.55. I specialize in crafting full-stack applications that blend strong logic with seamless design. As the Design Head of the Plexus Club, I’ve led creative projects involving web, desktop apps, and branding. I also have teaching experience and a strong track record of delivering impactful academic and freelance projects.",
+          skills: [
+            "JavaScript",
+            "Python",
+            "C#",
+            "Java",
+            "ReactJS",
+            "Next.js",
+            "Node.js",
+            "Express.js",
+            "ASP.NET",
+            "Django",
+            ".NET Core",
+            "FastAPI",
+            "Firebase",
+            "WebSockets",
+            "PostgreSQL",
+            "MySQL",
+            "MongoDB",
+            "TensorFlow",
+            "PyTorch",
+            "Scikit-learn",
+            "Pandas",
+            "NumPy",
+            "UI/UX Design",
+            "Figma",
+            "Docker",
+            "AWS",
+            "Git",
+            "Blender",
+          ],
+        },
+        projects: [
+          {
+            title: "UniScreen",
+            description:
+              "Real-time information distribution across campus. Manage displays, schedule announcements, and keep students informed with UniScreen.",
+            technologies: [
+              "FastAPI",
+              "VOLO V8",
+              "PostgreSQL",
+              "Next JS",
+            ],
+            image: "https://uniscreen.vercel.app/images/class-room-screen.jpg",
+            link: "https://uniscreen.vercel.app/",
+            github: "#",
+          },
+          {
+            title: "Tenexis",
+            description:
+              "A platform for college students to buy, sell, and rent products, with student shops and carpooling features.",
+            technologies: [
+              "React",
+              "Node.js",
+              "PostgreSQL",
+              "Docker",
+              "WhatsApp API",
+              "Cloudflare",
+            ],
+            image: "./public/tenexis.png",
+            link: "https://tenexis.in/",
+            github: "#",
+          },
+          {
+            title: "Plexus Club Platform",
+            description:
+              "Designed and developed a platform for managing events and competitions, with several Electron.js desktop apps.",
+            technologies: ["Figma", "React", "Tailwind CSS", "Electron.js"],
+            image: "./public/plexus.png",
+            link: "https://plexusclub.github.io/",
+            github: "https://github.com/PlexusClub/PlexusClub.github.io",
+          },
+          {
+            title: "JNTUH Notes & Result Fetcher",
+            description:
+              "A repository of notes and syllabi for CSE-AIML students, with a Python web scraper for result fetching.",
+            technologies: ["Python", "GitHub Pages", "Web Scraping", "SQL"],
+            image:
+              "./public/jntuh-notes.png",
+            link: "#",
+            github: "https://github.com/Harshrb2424/Jntuh-R22-Notes",
+          },
+          // {
+          //   title: "Dynamic Wallpaper",
+          //   description:
+          //     "Smart wallpapers for classroom displays that dynamically show schedules and faculty details in real time.",
+          //   technologies: ["Python", "Scheduling", "UI Automation"],
+          //   image:
+          //     "./public/class.png",
+          //   link: "#",
+          //   github: "#",
+          // },
+          {
+            title: "Code Marathon Competition",
+            description:
+              "Technical coordination for a coding competition under IIC-MRCE.",
+            technologies: ["Event Management", "Web", "GitHub Pages"],
+            image: "./public/codemarathon.png",
+            link: "https://iic-mrce.github.io/CodeMarathon/",
+            github: "#",
+          },
+          {
+            title: "Project-UniEvent-Node (Hackathon Winner)",
+            description:
+              "Hackathon project focused on backend development for a university event platform.",
+            technologies: ["Node.js", "Express", "MongoDB"],
+            image:
+              "https://raw.githubusercontent.com/ShaikhAman01/Project-UniEvent-Node/main/public/Images/HomePage.png",
+            link: "https://github.com/ShaikhAman01/Project-UniEvent-Node",
+            github: "https://github.com/ShaikhAman01/Project-UniEvent-Node",
+          },
+          {
+            title: "Janaki (Unreleased Short Film)",
+            description:
+              "Handled post-production editing including visuals and photos.",
+            technologies: ["Premiere Pro", "Photoshop"],
+            image: "./public/janaki.png",
+            link: "#",
+            github: "#",
+          },
+          {
+            title: "Youtube Shorts - Short Snippets",
+            description:
+              "Content creation and editing for a dedicated Shorts channel.",
+            technologies: ["OBS", "Video Editing", "YouTube"],
+            image: "./public/ss.png",
+            link: "https://www.youtube.com/@Short.snippets",
+            github: "#",
+          },
+          {
+            title: "Instagram Content Creation (@Harshrb.3d)",
+            description:
+              "Produced 3D animations and creative renders for Instagram content.",
+            technologies: ["Blender", "Photoshop", "Figma"],
+            image: "./public/ig.png",
+            link: "https://www.instagram.com/harshrb.3d",
+            github: "#",
+          },
+          {
+            title: "Blender Timelapse Series (YouTube)",
+            description:
+              "Created timelapse videos showcasing modeling and animation workflows.",
+            technologies: ["Blender", "OBS", "Video Editing"],
+            image: "./public/timelapse.png",
+            link: "https://youtube.com/playlist?list=PL5MuW9KkxcUj7q-tIZmJHpINRqfdh2foV",
+            github: "#",
+          },
+          {
+            title: "FMC Weekend 2022 - IIT BHU Varanasi",
+            description:
+              "3D modeling and animation competition entry at a national design event.",
+            technologies: ["Blender", "Animation", "Rendering"],
+            image: "./public/blender.png",
+            link: "https://www.instagram.com/p/CaAZJ3mlefj/",
+            github: "#",
+          },
+          {
+            title: "Streaming Presents - Shrey_INDIA",
+            description:
+              "End-to-end setup for live streaming and video editing for a YouTube creator.",
+            technologies: ["OBS", "Photoshop", "Premiere Pro"],
+            image: "./public/obs.png",
+            link: "https://www.youtube.com/live/QD8hZmt0VPU",
+            github: "#",
+          },
+          {
+            title: "Minecraft Videos (YouTube)",
+            description:
+              "Gaming content creation including recording, editing, and publishing.",
+            technologies: ["OBS", "YouTube", "Video Editing"],
+            image: "./public/mc.png",
+            link: "https://youtube.com/playlist?list=PL5MuW9KkxcUg6ps_3uMAfF7r7rN63_Xty",
+            github: "#",
+          },
+          {
+            title: "Minecraft World Design - MGU.ONE",
+            description:
+              "Designed maps for Minecraft Bedwars with creative problem-solving.",
+            technologies: ["Minecraft", "Teamwork", "Design"],
+            image: "./public/mgu-bedwars-map.png",
+            link: "https://topminecraftservers.org/server/10331",
+            github: "#",
+          },
+          {
+            title: "Community Coordinator - MGU.ONE Discord",
+            description:
+              "Organized online events and moderated an active gaming community.",
+            technologies: ["Discord", "Community Management", "Event Hosting"],
+            image: "./public/mgu-bedwars-event.jpg",
+            link: "https://discord.gg/mgu",
+            github: "#",
+          },
+        ],
+        experience: [
+           {
+            title: "Product Development Intern",
+            company: "Urbanloop (Mobility Transit Innovations Pvt Ltd)",
+            period: "June 2025 - Nov 2025",
+            description:
+              "Engineered and deployed three cross-platform mobile applications to the Google Play Store and Apple App Store using React Native.",
+            location: "Remote",
+          },
+          {
+            title: "ASP.NET Developer",
+            company: "YAR Tech Services",
+            period: "Oct 2024 - Mar 2025",
+            description:
+              "Developed admin panels and payslip generators using ASP.NET. Contributed to design, development, and testing in a collaborative environment.",
+            location: "Remote",
+          },
+          {
+            title: "Tutor",
+            company: "Smart Minds Tutorials",
+            period: "May 2024 - Jun 2024",
+            description:
+              "Taught computer fundamentals, Java, C, and IT tools to university and ICSE students. Emphasized practical understanding and concept clarity.",
+            location: "Hyderabad, India",
+          },
+        ],
+        contact: {
+          email: "harshrb05@gmail.com",
+          phone: "+91-7660873570",
+          location: "Hyderabad, India",
+        },
+        social: [
+          {
+            name: "GitHub",
+            icon: "fab fa-github",
+            url: "https://github.com/harshrb2424",
+          },
+          {
+            name: "LinkedIn",
+            icon: "fab fa-linkedin-in",
+            url: "https://linkedin.com/in/harshrb05/",
+          },
+          {
+            name: "Twitter",
+            icon: "fab fa-twitter",
+            url: "https://x.com/KN83D",
+          },
+        ],
+      };
+
+      // DOM elements
+      const elements = {
+        heroName: document.getElementById("hero-name"),
+        heroTitle: document.getElementById("hero-title"),
+        heroDescription: document.getElementById("hero-description"),
+        heroImage: document.getElementById("hero-image"),
+        heroCta: document.getElementById("hero-cta"),
+        socialLinks: document.getElementById("social-links"),
+        aboutTitle: document.getElementById("about-title"),
+        aboutDescription: document.getElementById("about-description"),
+        skillsContainer: document.getElementById("skills"),
+        projectsContainer: document.getElementById("projects-container"),
+        experienceContainer: document.getElementById("experience-container"),
+        contactInfo: document.getElementById("contact-info"),
+        footerSocial: document.getElementById("footer-social"),
+        currentYear: document.getElementById("current-year"),
+        footerThemeToggle: document.getElementById("footer-theme-toggle"), // New Element
+      };
+
+      // Initialize the portfolio
+      function initPortfolio() {
+        // Set current year
+        elements.currentYear.textContent = new Date().getFullYear();
+
+        // Load content
+        loadHeroSection();
+        loadAboutSection();
+        loadProjects();
+        loadExperience();
+        loadContactInfo();
+        loadSocialLinks();
+
+        // Initialize theme toggle
+        initThemeToggle();
+
+        // Initialize scroll animations
+        initScrollAnimations();
+      }
+
+      // Load hero section
+      function loadHeroSection() {
+        const { hero } = portfolioData;
+
+        elements.heroName.textContent = hero.name;
+        elements.heroTitle.textContent = hero.title;
+        elements.heroDescription.textContent = hero.description;
+        elements.heroImage.src = hero.image;
+        elements.heroImage.alt = `${hero.name} profile picture`;
+        elements.heroCta.textContent = hero.cta;
+      }
+
+      // Load about section
+      function loadAboutSection() {
+        const { about } = portfolioData;
+
+        elements.aboutTitle.textContent = about.title;
+        elements.aboutDescription.textContent = about.description;
+
+        // Load skills
+        about.skills.forEach((skill) => {
+          const skillElement = document.createElement("div");
+          // UPDATED: Support Light Mode
+          skillElement.className =
+            "bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 px-4 py-2 rounded-full text-sm font-medium";
+          skillElement.textContent = skill;
+          elements.skillsContainer.appendChild(skillElement);
+        });
+      }
+
+      // Load projects
+      function loadProjects() {
+        const { projects } = portfolioData;
+
+        projects.forEach((project) => {
+          const projectElement = document.createElement("div");
+          // UPDATED: Support Light Mode
+          projectElement.className =
+            "bg-white dark:bg-dark-900 rounded-xl overflow-hidden card-hover shadow-lg dark:shadow-none";
+
+          // Conditionally render link buttons
+          const linkHTML =
+            project.link !== "#"
+              ? `<a href="${project.link}" target="_blank" class="text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300 transition-colors">
+              <i class="fas fa-external-link-alt"></i> View
+           </a>`
+              : "";
+
+          const githubHTML =
+            project.github !== "#"
+              ? `<a href="${project.github}" target="_blank" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              <i class="fab fa-github"></i> Code
+           </a>`
+              : "";
+
+          // Inject final HTML with Light Mode classes
+          projectElement.innerHTML = `
+      <div class="h-48 overflow-hidden bg-gray-200 dark:bg-gray-800">
+        <img src="${project.image}" alt="${
+            project.title
+          }" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+      </div>
+      <div class="p-6">
+        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">${project.title}</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">${project.description}</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          ${project.technologies
+            .map(
+              (tech) =>
+                `<span class="bg-gray-100 dark:bg-dark-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-xs">${tech}</span>`
+            )
+            .join("")}
+        </div>
+        <div class="flex space-x-3">
+          ${linkHTML}
+          ${githubHTML}
+        </div>
+      </div>
+    `;
+
+          elements.projectsContainer.appendChild(projectElement);
+        });
+      }
+
+      // Load experience
+      function loadExperience() {
+        const { experience } = portfolioData;
+
+        experience.forEach((exp) => {
+          const expElement = document.createElement("div");
+          expElement.className = "relative pl-8 mb-8 timeline-item";
+          // UPDATED: Support Light Mode
+          expElement.innerHTML = `
+                    <div class="bg-white dark:bg-dark-900 rounded-xl p-6 card-hover shadow-md dark:shadow-none">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">${exp.title}</h3>
+                            <span class="bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 px-3 py-1 rounded-full text-sm">${exp.period}</span>
+                        </div>
+                        <h4 class="text-gray-600 dark:text-gray-300 mb-3">${exp.company} • ${exp.location}</h4>
+                        <p class="text-gray-600 dark:text-gray-400">${exp.description}</p>
+                    </div>
+                `;
+          elements.experienceContainer.appendChild(expElement);
+        });
+      }
+
+      // Load contact info
+      function loadContactInfo() {
+        const { contact } = portfolioData;
+
+        // UPDATED: Support Light Mode
+        elements.contactInfo.innerHTML = `
+                <div class="flex items-start">
+                    <div class="bg-emerald-100 dark:bg-emerald-900/20 p-3 rounded-lg mr-4">
+                        <i class="fas fa-envelope text-emerald-600 dark:text-emerald-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-900 dark:text-gray-300 font-medium">Email</h4>
+                        <a href="mailto:${
+                          contact.email
+                        }" class="text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">${
+          contact.email
+        }</a>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-emerald-100 dark:bg-emerald-900/20 p-3 rounded-lg mr-4">
+                        <i class="fas fa-phone-alt text-emerald-600 dark:text-emerald-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-900 dark:text-gray-300 font-medium">Phone</h4>
+                        <a href="https://api.whatsapp.com/send/?phone=${contact.phone.replace(
+                          /\D/g,
+                          ""
+                        )}" class="text-gray-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">${
+          contact.phone
+        }</a>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-emerald-100 dark:bg-emerald-900/20 p-3 rounded-lg mr-4">
+                        <i class="fas fa-map-marker-alt text-emerald-600 dark:text-emerald-400"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-900 dark:text-gray-300 font-medium">Location</h4>
+                        <p class="text-gray-600 dark:text-gray-400">${contact.location}</p>
+                    </div>
+                </div>
+            `;
+      }
+
+      // Load social links
+      function loadSocialLinks() {
+        const { social } = portfolioData;
+
+        // Hero social links
+        social.forEach((link) => {
+          const linkElement = document.createElement("a");
+          linkElement.href = link.url;
+          linkElement.target = "_blank";
+          // UPDATED: Light/Dark classes
+          linkElement.className =
+            "w-12 h-12 rounded-full bg-gray-200 dark:bg-dark-800 text-gray-700 dark:text-white hover:bg-emerald-500 dark:hover:bg-emerald-600 hover:text-white flex items-center justify-center text-xl transition-colors shadow-sm dark:shadow-none";
+          linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+          linkElement.title = link.name;
+          elements.socialLinks.appendChild(linkElement);
+        });
+
+        // Footer social links
+        social.forEach((link) => {
+          const linkElement = document.createElement("a");
+          linkElement.href = link.url;
+          linkElement.target = "_blank";
+          linkElement.className =
+            "w-10 h-10 rounded-full bg-gray-100 dark:bg-dark-800 text-gray-700 dark:text-white hover:bg-emerald-500 dark:hover:bg-emerald-600 hover:text-white flex items-center justify-center text-lg transition-colors shadow-sm dark:shadow-none";
+          linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+          linkElement.title = link.name;
+          elements.footerSocial.appendChild(linkElement);
+        });
+      }
+
+      // Initialize theme toggle
+      function initThemeToggle() {
+        const themeToggle = elements.footerThemeToggle;
+        
+        // 1. Check local storage or system preference
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light") {
+            document.documentElement.classList.remove("dark");
+        } else if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+             // Default to dark if nothing saved, or check system preference
+             if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                 document.documentElement.classList.add("dark");
+             } else {
+                 // You can choose to default to light if you prefer
+                 document.documentElement.classList.add("dark"); 
+             }
+        }
+
+        // 2. Handle click
+        themeToggle.addEventListener("click", () => {
+          const isDark = document.documentElement.classList.contains("dark");
+          
+          if(isDark) {
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("theme", "light");
+          } else {
+              document.documentElement.classList.add("dark");
+              localStorage.setItem("theme", "dark");
+          }
+        });
+      }
+
+      // Initialize scroll animations
+      function initScrollAnimations() {
+        const sections = document.querySelectorAll(".section");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+      }
+
+      // Initialize the portfolio when DOM is loaded
+      document.addEventListener("DOMContentLoaded", initPortfolio);
+    </script>
+  </body>
+</html>
