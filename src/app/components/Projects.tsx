@@ -9,7 +9,7 @@ type Project = {
   timePeriod: string;
   role: string;
   description: string;
-  link: string;
+  link?: string;
   image: string;
   tags: string[];
 };
