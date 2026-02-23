@@ -16,7 +16,7 @@ export const portfolioData = {
   },
   "personalInfo": {
     "name": "Harsh R Bagtharia",
-    "age": "18",
+    "age": "21",
     "phoneCode": "+91",
     "phoneNo": "7660873570",
     "city": "Hyderabad",
