@@ -12,8 +12,8 @@ type HeroProps = {
 };
 
 export function Hero({ data }: HeroProps) {
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects");
+  const scrollToPortfolio = () => {
+    const element = document.getElementById("portfolio");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -76,10 +76,10 @@ export function Hero({ data }: HeroProps) {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToProjects}
+                onClick={scrollToPortfolio}
                 className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors shadow-lg hover:shadow-xl"
               >
-                View Projects
+                View Portfolio
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}

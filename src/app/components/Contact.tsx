@@ -177,7 +177,7 @@ export function Contact({ socials, contact, personalInfo }: ContactProps) {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Social Media
               </h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-wrap gap-4">
                 {socials.map((social, index) => (
                   <motion.a
                     key={index}
@@ -186,14 +186,11 @@ export function Contact({ socials, contact, personalInfo }: ContactProps) {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-3 p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 hover:from-green-100 hover:to-green-200 dark:hover:from-green-800/30 dark:hover:to-green-700/30 rounded-lg transition-all group border border-green-200 dark:border-green-700/50"
+                    className="flex"
                   >
                     <div className="w-10 h-10 bg-green-500 dark:bg-green-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform">
                       {getSocialIcon(social.name)}
                     </div>
-                    <span className="font-medium text-gray-900 dark:text-white capitalize text-sm">
-                      {social.name}
-                    </span>
                   </motion.a>
                 ))}
               </div>

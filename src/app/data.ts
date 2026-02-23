@@ -4,9 +4,9 @@ export const portfolioData = {
     "links": ["Home", "About", "Portfolio", "Resume", "Contact"]
   },
   "home": {
-    "role": "Full Stack Developer",
+    "role": "Developer & Designer",
     "title": "Harsh R Bagtharia",
-    "subtitle": "Welcome to my digital space! I'm a college student aspiring to make a mark in the world of development. Explore my projects and join me on this coding adventure.",
+    "subtitle": " Passionate about blending creativity with technology.",
     "profileImage": "/Harsh R Bagtharia.jpg"
   },
   "about": {
@@ -32,7 +32,7 @@ export const portfolioData = {
       "title": "Higher Education",
       "course": "B.Tech. Computer Science and Engineering (AI & ML)",
       "institute": "Malla Reddy College of Engineering",
-      "logo": "https://mrce.in/assets/images/logo.png",
+      "logo": "https://plexusclub.github.io/assets/MRCE.png",
       "startYear": "2022",
       "endYear": "Present",
       "link": "https://mrce.in"
@@ -59,7 +59,7 @@ export const portfolioData = {
   "courses": [
     {
       "title": "Web Development",
-      "course": "The Complete 2023 Web Development Bootcamp",
+      "course": "The Complete Full-Stack Web Development Bootcamp",
       "instructor": "Dr. Angela Yu",
       "platform": "Udemy",
       "platformLogo": "https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og",
@@ -67,24 +67,55 @@ export const portfolioData = {
       "endYear": "2024",
       "link": "https://www.udemy.com/course/the-complete-web-development-bootcamp/",
       "certificateLink": "https://www.udemy.com/certificate/UC-22c2a1a7-05bd-451c-a601-200b601031f7/"
+    },
+    {
+      "title": "Business Analytics & Data Mining",
+      "course": "Modeling using R Part II",
+      "instructor": "Prof. Gaurav Dixit - IIT Roorkee",
+      "platform": "NPTEL",
+      "platformLogo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8kkKvc0BLJZvNb2TNTofXyY-3VsLYhbtf5Q&s",
+      "startYear": "Mar 2025",
+      "endYear": "Aug 2025",
+      "link": "https://onlinecourses.nptel.ac.in/noc22_mg67/preview",
+      "certificateLink": "https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25MG87S43700427709322815"
+    },
+    {
+      "title": "Machine Learning",
+      "course": "Machine Learning A-Z: AI, Python & R + ChatGPT",
+      "instructor": "Kirill Eremenko, Hadelin de Ponteves, SuperDataScience Team, Ligency",
+      "platform": "Udemy",
+      "platformLogo": "https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og",
+      "startYear": "Apr 2025",
+      "endYear": "Oct 2025",
+      "link": "https://www.udemy.com/course/machinelearning/",
+      "certificateLink": "https://www.udemy.com/certificate/UC-a1028b2d-e769-4a9e-94b3-eb1c7b8f7a84/"
     }
   ],
-"projects": [
+  "projects": [
+    {
+      "title": "Figma Workshop",
+      "category": "Event",
+      "timePeriod": "Feb 2026",
+      "role": "Workshop Organizer & Instructor",
+      "description": "Designed and conducted a hands-on Figma workshop covering UI fundamentals, auto layout, components, design systems, and rapid prototyping.",
+      "link": "https://resources.harshrb.in/Figma-Workshop/Workshop-Overview",
+      "image": "/Figma Workshop.png",
+      "tags": ["UI/UX", "Figma"]
+    },
     {
       "title": "UniScreen",
       "category": "Developed",
-      "timePeriod": "2024 - Present",
+      "timePeriod": "2025 - Present",
       "role": "Full Stack Developer",
       "description": "Real-time information distribution across campus. Manage displays and schedule announcements seamlessly.",
       "link": "https://uniscreen.vercel.app/",
-      "github": "#",
       "image": "https://uniscreen.vercel.app/images/class-room-screen.jpg",
       "tags": ["FastAPI", "VOLO V8", "PostgreSQL", "Next JS"]
     },
     {
       "title": "Tenexis - Web Development",
       "category": "Developed",
-      "timePeriod": "2024 - Present",
+      "timePeriod": "Dec 2024 - Present",
       "role": "Full Stack Developer",
       "description": "A platform for college students to buy, sell, and rent products, including student shops and carpooling.",
       "link": "https://tenexis.in/",
@@ -95,7 +126,7 @@ export const portfolioData = {
     {
       "title": "VengenceUI - Open Source",
       "category": "Open Source Contribution",
-      "timePeriod": "2026",
+      "timePeriod": "Jan 2026",
       "role": "Contributor",
       "description": "Contributed to VengenceUI open source project, focusing on UI components and library growth.",
       "link": "https://www.vengenceui.com/",
@@ -132,7 +163,6 @@ export const portfolioData = {
       "role": "App Developer",
       "description": "Contributed to the development of UrbanLoop driver mobile application for logistics management.",
       "link": "https://play.google.com/store/apps/details?id=com.vamsi98.urbanloop_mobile",
-      "github": "#",
       "image": "https://play-lh.googleusercontent.com/iRMxkyPaMmDfOWlj924AMa18_BnzkFd-eMdMAKRGfejzpaB0NvWjZplW3VK_WhOy2T4=w416-h235",
       "tags": ["Mobile App", "Android", "Flutter/React Native"]
     },
@@ -143,9 +173,17 @@ export const portfolioData = {
       "role": "App Developer",
       "description": "Contributed to the development of UrbanLoop user mobile application for instant ride booking.",
       "link": "https://apps.apple.com/in/app/urbanloop-get-instant-rides/id6748720148",
-      "github": "#",
       "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e4/d2/f0/e4d2f000-4112-6289-4611-09d94c126467/AppIcon-0-0-1x_U007epad-0-1-85-220.png/1200x630wa.png",
       "tags": ["Mobile App", "iOS", "Android"]
+    },
+    {
+      "title": "3rd Place - Hack-N-Win",
+      "category": "Event",
+      "timePeriod": "March 2025",
+      "role": "Full Stack Developer",
+      "description": "Secured 3rd place at the Hack-N-Win Hackathon hosted at MRCE.",
+      "image": "https://myportfolio-veekshan.netlify.app/hackathons/hacknwin/stage.jpg",
+      "tags": ["Hackathon", "Competitive Programming", "Rapid Prototyping"]
     },
     {
       "title": "Code Marathon Competition",
@@ -159,8 +197,8 @@ export const portfolioData = {
       "tags": ["Event Management", "Web", "GitHub Pages"]
     },
     {
-      "title": "Project-UniEvent-Node",
-      "category": "Hackathon",
+      "title": "Class Winners - UniEvent",
+      "category": "Event",
       "timePeriod": "June 2023",
       "role": "Web Backend Development",
       "description": "Hackathon Class Winners - University event management platform focused on scalable backend.",
@@ -171,12 +209,10 @@ export const portfolioData = {
     },
     {
       "title": "Janaki - Short Film",
-      "category": "Media",
+      "category": "Content Creation",
       "timePeriod": "June 2023",
       "role": "Video and Photo Editing",
       "description": "Unreleased short film - handled post-production editing including visuals and photo grading.",
-      "link": "#",
-      "github": "#",
       "image": "/janaki.png",
       "tags": ["Premiere Pro", "Photoshop", "Video Editing"]
     },
@@ -187,7 +223,6 @@ export const portfolioData = {
       "role": "Content Creator",
       "description": "Content creation and editing for a dedicated Shorts channel focused on tech snippets.",
       "link": "https://www.youtube.com/@Short.snippets",
-      "github": "#",
       "image": "/ss.png",
       "tags": ["YouTube", "Video Editing", "OBS"]
     },
@@ -198,7 +233,6 @@ export const portfolioData = {
       "role": "3D Artist & Animator",
       "description": "Produced 3D animations, creative renders, and compositing for @Harshrb.3d.",
       "link": "https://www.instagram.com/harshrb.3d",
-      "github": "#",
       "image": "/ig.png",
       "tags": ["Blender", "3D Modeling", "Animation", "Figma"]
     },
@@ -209,29 +243,26 @@ export const portfolioData = {
       "role": "3D Artist",
       "description": "YouTube timelapse series showcasing 3D modeling and animation workflows.",
       "link": "https://youtube.com/playlist?list=PL5MuW9KkxcUj7q-tIZmJHpINRqfdh2foV",
-      "github": "#",
       "image": "/timelapse.png",
       "tags": ["Blender", "OBS", "Video Editing"]
     },
     {
-      "title": "FMC Weekend 2022",
-      "category": "Competition",
+      "title": "FMC Weekend 2022 Competition",
+      "category": "Event",
       "timePeriod": "Feb 2022",
       "role": "3D Artist",
       "description": "3D modeling and animation competition entry for IIT BHU Varanasi national event.",
       "link": "https://www.instagram.com/p/CaAZJ3mlefj/",
-      "github": "#",
       "image": "/blender.png",
       "tags": ["Competition", "3D", "Animation", "Rendering"]
     },
     {
       "title": "Streaming Presents - Shrey_INDIA",
-      "category": "Media",
+      "category": "Content Creation",
       "timePeriod": "2022",
-      "role": "Technical Producer",
+      "role": "Designer",
       "description": "End-to-end setup for live streaming and video editing for a YouTube creator.",
       "link": "https://www.youtube.com/live/QD8hZmt0VPU",
-      "github": "#",
       "image": "/obs.png",
       "tags": ["OBS", "Photoshop", "Premiere Pro"]
     },
@@ -239,10 +270,9 @@ export const portfolioData = {
       "title": "Minecraft World Design - MGU.ONE",
       "category": "Design",
       "timePeriod": "2021",
-      "role": "Level Designer",
+      "role": "Designer",
       "description": "Designed maps for Minecraft Bedwars with creative problem-solving and layout planning.",
       "link": "https://topminecraftservers.org/server/10331",
-      "github": "#",
       "image": "/mgu-bedwars-map.png",
       "tags": ["Minecraft", "Design", "Gaming"]
     },
@@ -253,7 +283,6 @@ export const portfolioData = {
       "role": "Coordinator",
       "description": "Organized online events and moderated an active gaming community on Discord.",
       "link": "https://discord.gg/mgu",
-      "github": "#",
       "image": "/mgu-bedwars-event.jpg",
       "tags": ["Discord", "Community Management", "Event Hosting"]
     }

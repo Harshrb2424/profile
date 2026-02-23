@@ -1,4 +1,4 @@
-import { Briefcase, GraduationCap, Award } from "lucide-react";
+import { Briefcase, Award } from "lucide-react";
 import { motion } from "motion/react";
 
 type Education = {
@@ -182,7 +182,6 @@ export function Resume({ personalInfo, skills, education, courses }: ResumeProps
             transition={{ duration: 0.5 }}
             className="flex items-center justify-center gap-3 mb-8"
           >
-            <GraduationCap className="size-8 text-green-600 dark:text-green-400" />
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
               <span className="inline-block border-b-4 border-green-500 pb-2">
                 Education

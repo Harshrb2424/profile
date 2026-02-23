@@ -105,7 +105,7 @@ export function Projects({ data }: ProjectsProps) {
                       className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 p-1.5 sm:p-2 bg-white rounded-full hover:bg-green-500 hover:text-white transition-colors"
                       aria-label="View project"
                     >
-                      <ExternalLink className="size-4 sm:size-5" />
+                      <ExternalLink className="size-4 sm:size-5" color="#000" />
                     </a>
                   )}
                 </div>
