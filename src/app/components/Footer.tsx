@@ -68,7 +68,7 @@ export function Footer({ contact }: FooterProps) {
 
           {/* Copyright */}
           <div className="text-center text-gray-400 text-sm border-t border-gray-800 pt-8 w-full">
-            <p>© {new Date().getFullYear()} Harsh R Bagtharia. All rights reserved.</p>
+            <p>Harsh R Bagtharia.</p>
           </div>
         </div>
       </div>
