@@ -725,7 +725,6 @@
         // Load skills
         about.skills.forEach((skill) => {
           const skillElement = document.createElement("div");
-          // UPDATED: Support Light Mode
           skillElement.className =
             "bg-emerald-100 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 px-4 py-2 rounded-full text-sm font-medium";
           skillElement.textContent = skill;
@@ -739,11 +738,8 @@
 
         projects.forEach((project) => {
           const projectElement = document.createElement("div");
-          // UPDATED: Support Light Mode
           projectElement.className =
             "bg-white dark:bg-dark-900 rounded-xl overflow-hidden card-hover shadow-lg dark:shadow-none";
-
-          // Conditionally render link buttons
           const linkHTML =
             project.link !== "#"
               ? `<a href="${project.link}" target="_blank" class="text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300 transition-colors">
@@ -757,8 +753,6 @@
               <i class="fab fa-github"></i> Code
            </a>`
               : "";
-
-          // Inject final HTML with Light Mode classes
           projectElement.innerHTML = `
       <div class="h-48 overflow-hidden bg-gray-200 dark:bg-gray-800">
         <img src="${project.image}" alt="${
