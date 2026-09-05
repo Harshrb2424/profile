@@ -16,7 +16,7 @@ export const portfolioData = {
   },
   "personalInfo": {
     "name": "Harsh R Bagtharia",
-    "age": "21",
+    "age": "22",
     "phoneCode": "+91",
     "phoneNo": "7660873570",
     "city": "Hyderabad",
@@ -24,7 +24,7 @@ export const portfolioData = {
     "languages": ["English", "Hindi", "Telugu"]
   },
   "skills": {
-    "technical": ["HTML", "CSS", "JavaScript", "Express", "Node.js", "React", "Python", "C", "Blender", "GitHub"],
+    "technical": ["Python", "C", "Blender", "GitHub", "Node.js", "React", "React Native", "JavaScript", "Docker", "AWS", "Cloudflare", "PostgreSQL"],
     "soft": ["Collaboration", "Problem-Solving", "Adaptability", "Networking", "Customer Focus"]
   },
   "education": [
@@ -34,7 +34,7 @@ export const portfolioData = {
       "institute": "Malla Reddy College of Engineering",
       "logo": "https://plexusclub.github.io/assets/MRCE.png",
       "startYear": "2022",
-      "endYear": "Present",
+      "endYear": "2026",
       "link": "https://mrce.in"
     },
     {
@@ -105,8 +105,8 @@ export const portfolioData = {
     {
       "title": "UniScreen",
       "category": "Developed",
-      "timePeriod": "2025 - Present",
-      "role": "Full Stack Developer",
+      "timePeriod": "2025 - 2026",
+      "role": "Full Stack",
       "description": "Real-time information distribution across campus. Manage displays and schedule announcements seamlessly.",
       "link": "https://uniscreen.vercel.app/",
       "image": "https://uniscreen.vercel.app/images/class-room-screen.jpg",
@@ -116,7 +116,7 @@ export const portfolioData = {
       "title": "Tenexis - Web Development",
       "category": "Developed",
       "timePeriod": "Dec 2024 - Present",
-      "role": "Full Stack Developer",
+      "role": "Full Stack",
       "description": "A platform for college students to buy, sell, and rent products, including student shops and carpooling.",
       "link": "https://tenexis.in/",
       "github": "#",
